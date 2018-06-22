@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-//import './ImageItem.css'
+import './ImageItem.css'
 class ImageItem extends Component {
   static propTypes = {
     image: PropTypes.object.isRequired,
@@ -24,7 +24,7 @@ class ImageItem extends Component {
       <div className="col-md-4">
         <div className="card mb-4 box-shadow">
           <div className="card-header">
-            <h4 class="card-title text-center">{image.title}</h4>
+            <h4 className="card-title text-center">{image.title}</h4>
           </div>
           <img
             className="card-img-top"
@@ -34,11 +34,11 @@ class ImageItem extends Component {
           <div className="card-body">
             <p className="card-text">{image.description}</p>
             <p className="card-text">
-              {image.tags
-                .split(',')
-                .map((tag) => (
-                  <span class="badge badge-pill badge-dark">{tag}</span>
-                ))}
+              {image.tags.split(',').map((tag, index) => (
+                <span key={index} className="badge badge-pill badge-dark mr-2">
+                  {tag}
+                </span>
+              ))}
             </p>
             <div className="d-flex justify-content-between align-items-center">
               <div className="btn-group">
