@@ -58,7 +58,10 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "lint:solidity": "./node_modules/.bin/solium -d ./contracts",
+    "start:ganache": "ganache-cli -i local_test -d",
+    "deploy:truffle": "truffle migrate --network ganache --reset"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -101,5 +104,8 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "devDependencies": {
+    "solium": "^1.1.7"
   }
 }

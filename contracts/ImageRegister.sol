@@ -3,23 +3,34 @@ pragma solidity ^0.4.24;
 // Base contract that can be destroyed by owner. 
 import "openzeppelin-solidity/contracts/lifecycle/Destructible.sol";
 
-/**
+/** 
  * @title ImageRegister
  * @author Irvin M. Waldman (@irvinwaldman)
- * @dev Stores IPFS (multihash) hash by address along with metadata
+ * @dev Stores IPFS image hashes by address along with metadata
  */
 contract ImageRegister is Destructible {
+
+  /// @dev Represents a single image which is owned by someone. 
   struct Image {
+    // IPFS hash
     string ipfsHash;
+    // Metadata
     string title;
     string description;
     string metadata;
   }
 
-  // Storage
+  // Maps owner to the owner's images
   mapping (address => Image[]) public ownerToImages;
 
-  // events
+  /**
+   * @notice Indicates that a user has uploaded an image
+   * @param _owner The owner of the image
+   * @param _ipfsHash The IPFS image hash
+   * @param _title The image title
+   * @param _description The image description
+   * @param _metadata The image metadata
+   */
   event LogImage(
     address indexed _owner, 
     string _ipfsHash, 
@@ -28,13 +39,13 @@ contract ImageRegister is Destructible {
     string _metadata
   );
 
-   /**
-   * @dev associate a image entry with the sender address
-   * @param _ipfsHash IPFS hash
-   * @param _title image title
-   * @param _description image description
-   * @param _metadata image tag(s)
-   */
+   /** 
+    * @dev associate a image entry with the sender address
+    * @param _ipfsHash The IPFS hash
+    * @param _title The image title
+    * @param _description The image description
+    * @param _metadata The image tag(s)
+    */
   function setImage(
     string _ipfsHash, 
     string _title, 
@@ -62,7 +73,7 @@ contract ImageRegister is Destructible {
     _success = true;
   }
 
-  /**
+  /** 
    * @dev returns the number of images associated with the given address
    * @param _owner owner address
    * @return number of images associated with a given address
@@ -71,7 +82,7 @@ contract ImageRegister is Destructible {
     return ownerToImages[_owner].length;
   }
 
-  /**
+  /** 
    * @dev returns the 
    * @param _owner owner address
    * @param _index next image to return

@@ -1,5 +1,13 @@
 # ipfs-image-dapp
 
+For this project, we used the following stack:
+
+Solidity Smart Contracts
+IPFS for storing image data via Infura
+Truffle and Ganache for our development and testing framework
+React / Redux / Bootstrap for our front-end development
+MetaMask for our web3 provider
+
 ## Getting Started
 
 - Have [node](https://nodejs.org/en/) installed. If you run into trouble, this was created with `v10.1.0`
