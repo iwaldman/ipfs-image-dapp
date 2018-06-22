@@ -2,7 +2,7 @@ import {
   GET_IMAGES,
   GET_IMAGES_SUCCESS,
   SET_ERROR,
-  ADD_IMAGE,
+  UPLOAD_IMAGE,
 } from '../actions/types'
 
 const initialState = {
@@ -28,7 +28,7 @@ export default (state = initialState, action) => {
         images: action.payload,
         error: null,
       }
-    case ADD_IMAGE:
+    case UPLOAD_IMAGE:
       return {
         ...state,
         loading: true,

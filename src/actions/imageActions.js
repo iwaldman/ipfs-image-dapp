@@ -1,6 +1,11 @@
 import { ipfs } from '../utils/ipfs'
 
-import { GET_IMAGES, GET_IMAGES_SUCCESS, ADD_IMAGE, SET_ERROR } from './types'
+import {
+  GET_IMAGES,
+  GET_IMAGES_SUCCESS,
+  UPLOAD_IMAGE,
+  SET_ERROR,
+} from './types'
 
 // Get all images
 export const getImages = () => async (dispatch, getState) => {
@@ -25,11 +30,24 @@ export const getImages = () => async (dispatch, getState) => {
           from: web3State.account,
         }
       )
+
+      // Convert timestamps to strings
+      let tempDate = imageResult[4].toNumber()
+      const uploadedOn = tempDate !== 0 ? new Date(tempDate).toString() : null
+      tempDate = imageResult[5].toNumber()
+      const updatedOn = tempDate !== 0 ? new Date(tempDate).toString() : null
+      tempDate = imageResult[6].toNumber()
+      const clearedOn = tempDate !== 0 ? new Date(tempDate).toString() : null
+
+      // Image for UI
       const image = {
         ipfsHash: imageResult[0],
         title: imageResult[1],
         description: imageResult[2],
-        metadata: imageResult[3],
+        tags: imageResult[3],
+        uploadedOn,
+        updatedOn,
+        clearedOn,
       }
       images.push(image)
     }
@@ -44,16 +62,17 @@ export const getImages = () => async (dispatch, getState) => {
   }
 }
 
-// add an image
-export const addImage = (
+// upload an image
+export const uploadImage = (
   buffer,
   title,
   description,
-  metadata,
+  tags,
   history
 ) => async (dispatch, getState) => {
-  dispatch({ type: ADD_IMAGE })
+  dispatch({ type: UPLOAD_IMAGE })
 
+  // Add image to IPFS
   ipfs.files.add(buffer, async (error, result) => {
     if (error) {
       console.log('ERR', error)
@@ -65,20 +84,21 @@ export const addImage = (
       })
     } else {
       try {
-        const ipfsHash = result[0].hash
+        // Success, upload IPFS and metadata to the blockchain
+        const ipfsHash = result[0].hash // base58 encoded multihash
         const web3State = getState().web3
         const contractInstance = web3State.contractInstance
-        const receipt = await contractInstance.setImage(
+        const receipt = await contractInstance.uploadImage(
           ipfsHash,
           title,
           description,
-          metadata,
+          tags,
           {
             from: web3State.account,
           }
         )
 
-        console.log('setImage receipt', receipt)
+        console.log('uploadImage receipt', receipt)
         history.push('/')
       } catch (error) {
         console.log('ERR', error)

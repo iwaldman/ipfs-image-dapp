@@ -8,7 +8,7 @@ import './App.css'
 import Navbar from './components/layout/Navbar'
 import Main from './components/layout/Main'
 import Images from './components/images/Images'
-import AddImage from './components/image/AddImage'
+import UploadImage from './components/image/UploadImage'
 import NotFound from './components/notFound/NotFound'
 
 class App extends Component {
@@ -21,7 +21,7 @@ class App extends Component {
             <Main>
               <Switch>
                 <Route exact path="/" component={Images} />
-                <Route exact path="/addimage" component={AddImage} />
+                <Route exact path="/uploadimage" component={UploadImage} />
                 <Route exact component={NotFound} />
               </Switch>
             </Main>

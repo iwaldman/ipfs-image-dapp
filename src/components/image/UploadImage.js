@@ -2,13 +2,14 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import { addImage } from '../../actions/imageActions'
+import { uploadImage } from '../../actions/imageActions'
 import Spinner from '../common/Spinner'
 
-class AddImage extends Component {
+class UploadImage extends Component {
   state = {
     title: '',
     description: '',
+    tags: '',
     buffer: null,
   }
 
@@ -29,15 +30,9 @@ class AddImage extends Component {
 
   handleAddImage = (event) => {
     event.preventDefault()
-    const { title, description, buffer } = this.state
+    const { title, description, tags, buffer } = this.state
     console.log(title, description, buffer)
-    this.props.addImage(
-      buffer,
-      title,
-      description,
-      'metadata',
-      this.props.history
-    )
+    this.props.uploadImage(buffer, title, description, tags, this.props.history)
   }
 
   render() {
@@ -80,6 +75,19 @@ class AddImage extends Component {
                   />
                 </div>
                 <div className="form-group">
+                  <label htmlFor="tags">Tags *</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="tags"
+                    placeholder="tags"
+                    value={this.state.tags}
+                    onChange={this.handleChange}
+                    required
+                  />
+                  <div className="invalid-feedback">Title is required.</div>
+                </div>
+                <div className="form-group">
                   <label htmlFor="file">Image *</label>
                   <input
                     type="file"
@@ -114,5 +122,5 @@ const mapStateToProps = (state) => ({
 
 export default connect(
   mapStateToProps,
-  { addImage }
-)(AddImage)
+  { uploadImage }
+)(UploadImage)
