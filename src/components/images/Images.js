@@ -43,12 +43,6 @@ class Images extends Component {
               Blockchain.
             </p>
             <p>
-              <Link to="/" className="btn btn-primary  my-2 mr-2">
-                All Images
-              </Link>
-              <Link to="/" className="btn btn-primary  my-2 mr-2">
-                My Images
-              </Link>
               <Link to="/addimage" className="btn btn-primary my-2">
                 Upload Image
               </Link>
