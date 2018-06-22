@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
+import './ImageItem.css'
 class ImageItem extends Component {
   static propTypes = {
     image: PropTypes.object.isRequired,
@@ -18,6 +19,7 @@ class ImageItem extends Component {
             alt="Card"
           />
           <div className="card-body">
+            <h5 className="card-title">{image.title}</h5>
             <p className="card-text">{image.description}</p>
             <div className="d-flex justify-content-between align-items-center">
               <div className="btn-group">
@@ -34,8 +36,10 @@ class ImageItem extends Component {
                   Edit
                 </button>
               </div>
-              <small className="text-muted">9 mins</small>
             </div>
+          </div>
+          <div className="card-footer">
+            <small className="text-muted">Last updated 3 mins ago</small>
           </div>
         </div>
       </div>
