@@ -21,7 +21,7 @@ class ImageItem extends Component {
     const { image } = this.props
 
     return (
-      <div className="col-md-4">
+      <div className="col-md-6">
         <div className="card mb-4 box-shadow">
           <div className="card-header">
             <h4 className="card-title text-center">{image.title}</h4>

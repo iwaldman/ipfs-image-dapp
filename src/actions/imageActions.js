@@ -83,11 +83,15 @@ export const uploadImage = (
         },
       })
     } else {
+      const ipfsHash = result[0].hash // base58 encoded multihash
+      ipfs.files.get(ipfsHash, (error, files) => {
+        console.log(files)
+      })
+
+      const web3State = getState().web3
+      const contractInstance = web3State.contractInstance
       try {
         // Success, upload IPFS and metadata to the blockchain
-        const ipfsHash = result[0].hash // base58 encoded multihash
-        const web3State = getState().web3
-        const contractInstance = web3State.contractInstance
         const receipt = await contractInstance.uploadImage(
           ipfsHash,
           title,
