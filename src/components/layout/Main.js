@@ -20,7 +20,7 @@ class Layout extends Component {
       renderItems = (
         <div className="alert alert-danger" role="alert">
           <p>Oops! An error ocurred.</p>
-          <p>{error}</p>
+          <div>{error}</div>
         </div>
       )
     } else {

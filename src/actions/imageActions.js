@@ -31,23 +31,15 @@ export const getImages = () => async (dispatch, getState) => {
         }
       )
 
-      // Convert timestamps to strings
-      let tempDate = imageResult[4].toNumber()
-      const uploadedOn = tempDate !== 0 ? new Date(tempDate).toString() : null
-      tempDate = imageResult[5].toNumber()
-      const updatedOn = tempDate !== 0 ? new Date(tempDate).toString() : null
-      tempDate = imageResult[6].toNumber()
-      const clearedOn = tempDate !== 0 ? new Date(tempDate).toString() : null
-
       // Image for UI
       const image = {
         ipfsHash: imageResult[0],
         title: imageResult[1],
         description: imageResult[2],
         tags: imageResult[3],
-        uploadedOn,
-        updatedOn,
-        clearedOn,
+        uploadedOn: convertTimestampToString(imageResult[4]),
+        updatedOn: convertTimestampToString(imageResult[5]),
+        clearedOn: convertTimestampToString(imageResult[6]),
       }
       images.push(image)
     }
@@ -115,4 +107,9 @@ export const uploadImage = (
       }
     }
   })
+}
+
+const convertTimestampToString = (timestamp) => {
+  let tempDate = timestamp.toNumber()
+  return tempDate !== 0 ? new Date(tempDate).toString() : null
 }

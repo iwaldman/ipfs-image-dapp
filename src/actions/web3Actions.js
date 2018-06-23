@@ -92,12 +92,12 @@ export const web3Connect = () => async (dispatch) => {
     }
   } catch (error) {
     // unable to load the contract
-    console.log('Error loading ImageRegister contract.', error)
+    console.log('Error loading ImageRegister contract.', error.message)
     dispatch({
       type: WEB3_ERROR,
       payload: {
         loading: false,
-        error,
+        error: error.message,
       },
     })
   }
