@@ -27,7 +27,7 @@ export const web3Connect = () => async (dispatch) => {
         })
       } else {
         console.log('ImageUploaded event', result)
-        setTimeout(() => dispatch(getImages()), 1000)
+        setTimeout(() => dispatch(getImages()), 500)
       }
     })
 
@@ -43,7 +43,7 @@ export const web3Connect = () => async (dispatch) => {
         })
       } else {
         console.log('ImageUpdated event', result)
-        setTimeout(() => dispatch(getImages()), 1000)
+        setTimeout(() => dispatch(getImages()), 500)
       }
     })
 
@@ -59,7 +59,7 @@ export const web3Connect = () => async (dispatch) => {
         })
       } else {
         console.log('ImageCleared event', result)
-        setTimeout(() => dispatch(getImages()), 1000)
+        setTimeout(() => dispatch(getImages()), 500)
       }
     })
 

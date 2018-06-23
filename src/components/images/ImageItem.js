@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import './ImageItem.css'
+import { textTruncate } from '../../utils/string'
 class ImageItem extends Component {
   static propTypes = {
     image: PropTypes.object.isRequired,
@@ -9,60 +10,56 @@ class ImageItem extends Component {
 
   renderDate = (uploadedOn, updatedOn, clearedOn) => {
     if (clearedOn) {
-      return <small className="text-muted">Cleared on {clearedOn}</small>
+      return null
     } else if (updatedOn) {
-      return <small className="text-muted">Updated on {updatedOn}</small>
+      return `Updated on ${updatedOn}`
     } else {
-      return <small className="text-muted">Uploaded on {uploadedOn}</small>
+      return `Uploaded on ${uploadedOn}`
     }
   }
 
   render() {
-    const { image } = this.props
+    const {
+      ipfsHash,
+      title,
+      description,
+      tags,
+      uploadedOn,
+      updatedOn,
+      clearedOn,
+    } = this.props.image
+
+    const altDescription = description || 'No description'
 
     return (
-      <div className="col-md-6">
+      <div className="col-md-4">
         <div className="card mb-4 box-shadow">
-          <div className="card-header">
-            <h4 className="card-title text-center">{image.title}</h4>
-          </div>
           <img
             className="card-img-top"
-            src={`https://ipfs.io/ipfs/${image.ipfsHash}`}
+            src={`https://ipfs.io/ipfs/${ipfsHash}`}
             alt="Card"
           />
           <div className="card-body">
-            <p className="card-text">{image.description}</p>
+            <h4 className="card-title">{title}</h4>
+            <p className="card-text">{textTruncate(altDescription, 25)}</p>
+            <hr />
+            <p>
+              <strong>IPFS Hash</strong>
+              <p>
+                <span class="text-muted">{ipfsHash}</span>
+              </p>
+            </p>
+            <hr />
             <p className="card-text">
-              {image.tags.split(',').map((tag, index) => (
+              {tags.split(',').map((tag, index) => (
                 <span key={index} className="badge badge-pill badge-dark mr-2">
                   {tag}
                 </span>
               ))}
             </p>
-            <div className="d-flex justify-content-between align-items-center">
-              <div className="btn-group">
-                <button
-                  type="button"
-                  className="btn btn-sm btn-outline-secondary"
-                >
-                  Update
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-sm btn-outline-secondary"
-                >
-                  Clear
-                </button>
-              </div>
-            </div>
           </div>
-          <div className="card-footer">
-            {this.renderDate(
-              image.uploadedOn,
-              image.updatedOn,
-              image.clearedOn
-            )}
+          <div class="card-footer text-muted">
+            <small>{this.renderDate(uploadedOn, updatedOn, clearedOn)}</small>
           </div>
         </div>
       </div>

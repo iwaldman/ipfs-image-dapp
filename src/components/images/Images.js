@@ -17,6 +17,10 @@ class Images extends Component {
     this.props.getImages()
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.props.image.images !== nextProps.image.images
+  }
+
   render() {
     let { images, loading } = this.props.image
     let imageItems
