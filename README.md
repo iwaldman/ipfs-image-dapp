@@ -14,7 +14,7 @@ For this project, we used the following stack:
 * Install and run [Ganache](http://truffleframework.com/ganache/)
 * Install [MetaMask](https://metamask.io/)
   1.  Create and connect to a custom RPC network using the Ganache RPC server (currently `http://127.0.0.1:8545`)
-  2.  Import a new account and use the private key provided by Ganache from account 1.
+  2.  Import a new account and use the account seed phrase provided by Ganache.
 * Install the [Truffle Framework](http://truffleframework.com/)
   * `npm install -g truffle`
 * Clone or download the repo
