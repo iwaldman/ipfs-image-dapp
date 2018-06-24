@@ -106,6 +106,7 @@
     "extends": "react-app"
   },
   "devDependencies": {
-    "solium": "^1.1.7"
+    "solium": "^1.1.7",
+    "truffle-assertions": "^0.3.1"
   }
 }

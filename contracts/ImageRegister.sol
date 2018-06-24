@@ -128,7 +128,7 @@ contract ImageRegister is Destructible {
   }
 
   /** 
-   * @notice returns the image at index in the ownership arrap
+   * @notice returns the image at index in the ownership array
    * @param _owner owner address
    * @param _index next image to return
    * @return _ipfsHash IPFS hash
