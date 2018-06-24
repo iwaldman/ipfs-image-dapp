@@ -38,8 +38,6 @@ export const getImages = () => async (dispatch, getState) => {
         description: imageResult[2],
         tags: imageResult[3],
         uploadedOn: convertTimestampToString(imageResult[4]),
-        updatedOn: convertTimestampToString(imageResult[5]),
-        clearedOn: convertTimestampToString(imageResult[6]),
       }
       images.push(image)
     }

@@ -47,6 +47,10 @@ class Images extends Component {
               Blockchain.
             </p>
             <p>
+              Metamask Account{' '}
+              <mark>{this.props.web3.account || 'Not connected'}</mark>
+            </p>
+            <p>
               <Link to="/uploadimage" className="btn btn-primary my-2">
                 Upload Image
               </Link>
@@ -64,6 +68,7 @@ class Images extends Component {
 }
 
 const mapStateToProps = (state) => ({
+  web3: state.web3,
   image: state.image,
 })
 

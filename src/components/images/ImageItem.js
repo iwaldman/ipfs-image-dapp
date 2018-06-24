@@ -8,26 +8,8 @@ class ImageItem extends Component {
     image: PropTypes.object.isRequired,
   }
 
-  renderDate = (uploadedOn, updatedOn, clearedOn) => {
-    if (clearedOn) {
-      return null
-    } else if (updatedOn) {
-      return `Updated on ${updatedOn}`
-    } else {
-      return `Uploaded on ${uploadedOn}`
-    }
-  }
-
   render() {
-    const {
-      ipfsHash,
-      title,
-      description,
-      tags,
-      uploadedOn,
-      updatedOn,
-      clearedOn,
-    } = this.props.image
+    const { ipfsHash, title, description, tags, uploadedOn } = this.props.image
 
     const altDescription = description || 'No description'
 
@@ -59,7 +41,7 @@ class ImageItem extends Component {
             </p>
           </div>
           <div class="card-footer text-muted">
-            <small>{this.renderDate(uploadedOn, updatedOn, clearedOn)}</small>
+            <small>{`Uploaded on ${uploadedOn}`}</small>
           </div>
         </div>
       </div>

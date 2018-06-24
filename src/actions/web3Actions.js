@@ -31,38 +31,6 @@ export const web3Connect = () => async (dispatch) => {
       }
     })
 
-    contractInstance.ImageUpdated((error, result) => {
-      if (error) {
-        console.log('ImageUpdated event ERR', error)
-        dispatch({
-          type: WEB3_ERROR,
-          payload: {
-            loading: false,
-            error,
-          },
-        })
-      } else {
-        console.log('ImageUpdated event', result)
-        setTimeout(() => dispatch(getImages()), 500)
-      }
-    })
-
-    contractInstance.ImageCleared((error, result) => {
-      if (error) {
-        console.log('ImageCleared event ERR', error)
-        dispatch({
-          type: WEB3_ERROR,
-          payload: {
-            loading: false,
-            error,
-          },
-        })
-      } else {
-        console.log('ImageCleared event', result)
-        setTimeout(() => dispatch(getImages()), 500)
-      }
-    })
-
     // get the first account and ensure we are connected
     const accounts = await web3.eth.getAccounts()
     const account = accounts[0]
