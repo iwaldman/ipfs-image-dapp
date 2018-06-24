@@ -37,7 +37,6 @@ class Layout extends Component {
 
 const mapStateToProps = (state) => ({
   web3: state.web3,
-  image: state.image,
 })
 
 export default withRouter(

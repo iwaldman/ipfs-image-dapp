@@ -25,12 +25,12 @@ class ImageItem extends Component {
             <h4 className="card-title">{title}</h4>
             <p className="card-text">{textTruncate(altDescription, 25)}</p>
             <hr />
-            <p>
+            <div>
               <strong>IPFS Hash</strong>
               <p>
-                <span class="text-muted">{ipfsHash}</span>
+                <span className="text-muted">{ipfsHash}</span>
               </p>
-            </p>
+            </div>
             <hr />
             <p className="card-text">
               {tags.split(',').map((tag, index) => (
@@ -40,7 +40,7 @@ class ImageItem extends Component {
               ))}
             </p>
           </div>
-          <div class="card-footer text-muted">
+          <div className="card-footer text-muted">
             <small>{`Uploaded on ${uploadedOn}`}</small>
           </div>
         </div>

@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom'
 import Spinner from '../common/Spinner'
 import ImageItem from './ImageItem'
 import { getImages } from '../../actions/imageActions'
-
 class Images extends Component {
   static propTypes = {
     getImages: PropTypes.func.isRequired,
@@ -47,8 +46,10 @@ class Images extends Component {
               Blockchain.
             </p>
             <p>
-              Metamask Account{' '}
-              <mark>{this.props.web3.account || 'Not connected'}</mark>
+              <small>
+                Metamask Account{' '}
+                <mark>{this.props.web3.account || 'Not connected'}</mark>
+              </small>
             </p>
             <p>
               <Link to="/uploadimage" className="btn btn-primary my-2">

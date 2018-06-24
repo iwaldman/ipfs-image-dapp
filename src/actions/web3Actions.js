@@ -5,7 +5,7 @@ import ImageRegisterContractArtifact from '../../build/contracts/ImageRegister.j
 import { WEB3_CONNECTED, WEB3_ERROR } from './types'
 import { getImages } from './imageActions'
 
-export const web3Connect = () => async (dispatch) => {
+export const web3Connect = () => async (dispatch, getHistory) => {
   try {
     // contract ABI and set provider
     const imageRegisterContract = contract(ImageRegisterContractArtifact)
@@ -27,7 +27,7 @@ export const web3Connect = () => async (dispatch) => {
         })
       } else {
         console.log('ImageUploaded event', result)
-        setTimeout(() => dispatch(getImages()), 500)
+        dispatch(getImages())
       }
     })
 

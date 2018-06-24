@@ -28,7 +28,7 @@ class UploadImage extends Component {
     }
   }
 
-  handleAddImage = (event) => {
+  handleUploadImage = (event) => {
     event.preventDefault()
     const { title, description, tags, buffer } = this.state
     console.log(title, description, buffer)
@@ -50,7 +50,10 @@ class UploadImage extends Component {
                   and the Blockchain
                 </p>
               )}
-              <form className="needs-validation" onSubmit={this.handleAddImage}>
+              <form
+                className="needs-validation"
+                onSubmit={this.handleUploadImage}
+              >
                 <div className="form-group">
                   <label htmlFor="title">Title *</label>
                   <input
