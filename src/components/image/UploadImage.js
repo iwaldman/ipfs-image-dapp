@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import toastr from 'toastr'
 
 import { uploadImage } from '../../actions/imageActions'
 import Spinner from '../common/Spinner'
@@ -28,11 +29,27 @@ class UploadImage extends Component {
     }
   }
 
-  handleUploadImage = (event) => {
+  handleUploadImage = async (event) => {
     event.preventDefault()
     const { title, description, tags, buffer } = this.state
     console.log(title, description, buffer)
-    this.props.uploadImage(buffer, title, description, tags, this.props.history)
+    try {
+      await this.props.uploadImage(
+        buffer,
+        title,
+        description,
+        tags,
+        this.props.history
+      )
+      toastr.success(
+        'Image uploaded... it may take a while to appear in the list.'
+      )
+    } catch (error) {
+      toastr.error(error)
+    }
+
+    // return to image list
+    this.props.history.push('/')
   }
 
   render() {

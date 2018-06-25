@@ -93,7 +93,7 @@ export const uploadImage = (
         )
 
         console.log('uploadImage receipt', receipt)
-        history.push('/')
+        //history.push('/')
       } catch (error) {
         console.log('ERR', error)
         dispatch({
@@ -102,6 +102,7 @@ export const uploadImage = (
             error,
           },
         })
+        throw error
       }
     }
   })
