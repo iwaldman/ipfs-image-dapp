@@ -53,8 +53,8 @@ For this project, we used the following stack:
 7. Navigate to http://localhost:3000/ in your browser.
 
 8. Remember to connect [MetaMask](https://metamask.io/) to one of your local Ganache Ethereum accounts 
-  * Create and connect to a custom RPC network using the Ganache RPC server (currently `http://127.0.0.1:8545`)
-  * Import a new account and use the account seed phrase provided by Ganache
+   * Create and connect to a custom RPC network using the Ganache RPC server (currently `http://127.0.0.1:8545`)
+   * Import a new account and use the account seed phrase provided by Ganache
 
 
 ## Testing
