@@ -1,5 +1,11 @@
 # ipfs-image-dapp
 
+## Overview
+IPFS and the Blockchain are a perfect match! You can address large amounts of data with IPFS, and place the immutable, permanent IPFS links into a blockchain transaction. Doing so timestamps and secures your content, without having to put the data on the chain itself. You now have undisputable proof that your image existed at that time it was uploaded.
+
+This project is a simple dApp that demonstrates how to implement IPFS file uploads and store the IPFS hash in an Ethereum smart contract.
+
+## Our stack
 For this project, we used the following stack:
 
 - Solidity Smart Contracts
@@ -43,3 +49,11 @@ Type `truffle test` to test.
 * Did you `truffle compile` and `truffle migrate` whenever starting your local network or making changes to your smart contract?
 * Transaction error? Try resetting the MetaMask account you created under settings.
 * Is `truffle migrate` showing stale settings? Try `truffle migrate --reset`
+
+## Notes
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+
+This project uses [Bootstrap 4](https://getbootstrap.com/).
+
+[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+
