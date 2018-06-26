@@ -33,8 +33,10 @@ For this project, we used the following stack:
     ganache-cli -b 3
     ```
 
-4. Clone or download the repo then install its dependencies.
+4. Open another terminal, clone this repo then install its dependencies.
     ```bash
+    git clone https://github.com/iwaldman/ipfs-image-dapp.git
+    cd ipfs-image.dapp
     npm install
     ```
    * If you get an error on install, don't panic. It should still work.
@@ -53,9 +55,9 @@ For this project, we used the following stack:
 7. Navigate to http://localhost:3000/ in your browser.
 
 8. Remember to connect [MetaMask](https://metamask.io/) to one of your local Ganache Ethereum accounts 
+   * Connect to Localhost 8545, alternatively, 
    * Create and connect to a custom RPC network using the Ganache RPC server (currently `http://127.0.0.1:8545`)
    * Import a new account and use the account seed phrase provided by Ganache
-
 
 ## Testing
 To run the unit tests.
