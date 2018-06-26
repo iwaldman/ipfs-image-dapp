@@ -107,7 +107,9 @@
     "extends": "react-app"
   },
   "devDependencies": {
+    "solidity-coverage": "^0.5.4",
     "solium": "^1.1.7",
+    "truffle": "^4.1.12",
     "truffle-assertions": "^0.3.1"
   }
 }

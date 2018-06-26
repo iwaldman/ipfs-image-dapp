@@ -177,4 +177,186 @@ contract('ImageRegister', (accounts) => {
       'has the correct image count for owner 3'
     )
   })
+
+  it('should require a valid IPFS hash when uploading an image', async () => {
+    const badIPFSHash = ipfsHash1.slice(0, ipfsHash1.length / 2)
+
+    try {
+      await imageRegisterInstance.uploadImage('', title1, description1, tags1, {
+        from: owner,
+      })
+      assert.fail('Expected throw not received')
+    } catch (error) {
+      assert(
+        error.message.indexOf('revert') >= 0,
+        'error message must contain revert'
+      )
+    }
+
+    try {
+      await imageRegisterInstance.uploadImage(
+        badIPFSHash,
+        title1,
+        description1,
+        tags1,
+        {
+          from: owner,
+        }
+      )
+      assert.fail('Expected throw not received')
+    } catch (error) {
+      assert(
+        error.message.indexOf('revert') >= 0,
+        'error message must contain revert'
+      )
+    }
+  })
+
+  it('should require a valid title when uploading an image', async () => {
+    try {
+      await imageRegisterInstance.uploadImage(
+        ipfsHash1,
+        '',
+        description1,
+        tags1,
+        {
+          from: owner,
+        }
+      )
+      assert.fail('Expected throw not received')
+    } catch (error) {
+      assert(
+        error.message.indexOf('revert') >= 0,
+        'error message must contain revert'
+      )
+    }
+
+    try {
+      await imageRegisterInstance.uploadImage(
+        ipfsHash1,
+        'X'.repeat(257),
+        description1,
+        tags1,
+        {
+          from: owner,
+        }
+      )
+      assert.fail('Expected throw not received')
+    } catch (error) {
+      assert(
+        error.message.indexOf('revert') >= 0,
+        'error message must contain revert'
+      )
+    }
+  })
+
+  it('should require a valid description when uploading an image', async () => {
+    try {
+      await imageRegisterInstance.uploadImage(ipfsHash1, title1, '', tags1, {
+        from: owner,
+      })
+    } catch (error) {
+      assert.fail('Unexpected throw received')
+    }
+
+    try {
+      await imageRegisterInstance.uploadImage(
+        ipfsHash1,
+        title1,
+        'X'.repeat(1025),
+        tags1,
+        {
+          from: owner,
+        }
+      )
+      assert.fail('Expected throw not received')
+    } catch (error) {
+      assert(
+        error.message.indexOf('revert') >= 0,
+        'error message must contain revert'
+      )
+    }
+  })
+
+  it('should require tags when uploading an image', async () => {
+    try {
+      await imageRegisterInstance.uploadImage(
+        ipfsHash1,
+        title1,
+        description1,
+        '',
+        {
+          from: owner,
+        }
+      )
+      assert.fail('Expected throw not received')
+    } catch (error) {
+      assert(
+        error.message.indexOf('revert') >= 0,
+        'error message must contain revert'
+      )
+    }
+
+    try {
+      await imageRegisterInstance.uploadImage(
+        ipfsHash1,
+        title1,
+        description1,
+        'X'.repeat(257),
+        {
+          from: owner,
+        }
+      )
+      assert.fail('Expected throw not received')
+    } catch (error) {
+      assert(
+        error.message.indexOf('revert') >= 0,
+        'error message must contain revert'
+      )
+    }
+  })
+
+  it('should require a valid address when retrieving image count', async () => {
+    try {
+      await imageRegisterInstance.getImageCount(0x0)
+      assert.fail('Expected throw not received')
+    } catch (error) {
+      assert(
+        error.message.indexOf('revert') >= 0,
+        'error message must contain revert'
+      )
+    }
+  })
+
+  it('should require a valid index when retrieving image details', async () => {
+    try {
+      await imageRegisterInstance.getImage(owner, -1)
+      assert.fail('Expected throw not received')
+    } catch (error) {
+      assert(
+        error.message.indexOf('revert') >= 0,
+        'error message must contain revert'
+      )
+    }
+
+    try {
+      await imageRegisterInstance.getImage(owner, 257)
+      assert.fail('Expected throw not received')
+    } catch (error) {
+      assert(
+        error.message.indexOf('revert') >= 0,
+        'error message must contain revert'
+      )
+    }
+
+    try {
+      await imageRegisterInstance.getImage(owner, 0)
+      assert.fail('Expected throw not received')
+    } catch (error) {
+      assert(
+        error.message.indexOf('revert') >= 0,
+        'error message must contain revert'
+      )
+    }
+  })
 })

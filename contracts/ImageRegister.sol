@@ -57,6 +57,11 @@ contract ImageRegister is Destructible {
     string _description, 
     string _tags
     ) public returns (bool _success) {
+        
+    require(bytes(_ipfsHash).length == 46);
+    require(bytes(_title).length > 0 && bytes(_title).length <= 256);
+    require(bytes(_description).length < 1024);
+    require(bytes(_tags).length > 0 && bytes(_tags).length <= 256);
 
     uint256 uploadedOn = now;
     Image memory image = Image(
@@ -87,6 +92,7 @@ contract ImageRegister is Destructible {
    * @return The number of images associated with a given address
    */
   function getImageCount(address _owner) public view returns (uint256) {
+    require(_owner != 0x0);
     return ownerToImages[_owner].length;
   }
 
@@ -107,6 +113,10 @@ contract ImageRegister is Destructible {
     string _tags,
     uint256 _uploadedOn
     ) {
+
+    require(_owner != 0x0);
+    require(_index >= 0 && _index <= 2**8 - 1);
+    require(ownerToImages[_owner].length > 0);
 
     Image storage image = ownerToImages[_owner][_index];
     
