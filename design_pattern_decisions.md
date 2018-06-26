@@ -6,7 +6,8 @@ The contract uses msg.sender instead of tx.origin.
 
 ## Gas Limits
 
-Does not loop over arrays of undetermined length. Uses the getImage by index. This reduces the chance of the gas cost exceeding the gas limit.
+Does not loop over arrays of undetermined length.
 
-Run tests for gas usage.
-limits the length of user supplied data. Each string has a max length.
+Requires caller to specify an index when retrieving a specific image details. This reduces the chance of the gas cost exceeding the gas limit.
+
+Limits the length of user supplied data. Each string has a max length.
