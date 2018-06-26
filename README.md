@@ -59,9 +59,9 @@ For this project, we used the following stack:
 
 ## Testing
 To run the unit tests.
-    ```bash
-    truffle test
-    ```
+```bash
+truffle test
+```
 
 ## Troubleshooting Tips
 * Is Ganache running?
