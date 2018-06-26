@@ -54,16 +54,11 @@ For this project, we used the following stack:
     npm run start
     ```
 
-### Remember these steps when starting a new development session.
-1.  Start Ganache.
-2.  Unlock MetaMask with local RPC network.
-3.  Switch accounts to the one we imported as described above.
-4.  `truffle compile`
-5.  `truffle migrate`
-6.  `npm run start`
-
-### Testing
-Type `truffle test` to test.
+## Testing
+To run the unit tests.
+    ```bash
+    truffle test
+    ```
 
 ## Troubleshooting Tips
 * Is Ganache running?
