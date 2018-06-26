@@ -79,4 +79,3 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 This project uses [Bootstrap 4](https://getbootstrap.com/).
 
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
-
