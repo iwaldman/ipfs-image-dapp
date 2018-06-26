@@ -27,17 +27,13 @@ For this project, we used the following stack:
     npm install -g ganache-cli
     ```
 
-2. Run the development blockchain, we recommend passing in a blocktime. Otherwise, its difficult to track things like loading indicators because Ganache will mine instantly.
+2. Run the development blockchain passing in a blocktime. Otherwise, its difficult to track things like loading indicators because Ganache will mine instantly.
     ```bash
-    // 3 second blocktime.
+    // 3 second blocktime
     ganache-cli -b 3
     ```
 
-3. Install [MetaMask](https://metamask.io/)
-  1.  Create and connect to a custom RPC network using the Ganache RPC server (currently `http://127.0.0.1:8545`)
-  2.  Import a new account and use the account seed phrase provided by Ganache
-
-4. Clone or download the repo
+4. Clone or download the repo then install its dependencies.
     ```bash
     npm i
     ```
@@ -53,6 +49,13 @@ For this project, we used the following stack:
     ```bash
     npm run start
     ```
+    
+7. Navigate to http://localhost:3000/ in your browser.
+
+8. Remember to connect [MetaMask](https://metamask.io/) to one of your local Ganache Ethereum accounts 
+  * Create and connect to a custom RPC network using the Ganache RPC server (currently `http://127.0.0.1:8545`)
+  * Import a new account and use the account seed phrase provided by Ganache
+
 
 ## Testing
 To run the unit tests.
