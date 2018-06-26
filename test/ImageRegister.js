@@ -49,7 +49,7 @@ contract('ImageRegister', (accounts) => {
     assert.equal(success, true, 'it returns true')
   })
 
-  it('should emit an ImageUploaded event when storing an image', async () => {
+  it('should emit a LogImageUploaded event when storing an image', async () => {
     const tx = await imageRegisterInstance.uploadImage(
       ipfsHash1,
       title1,
@@ -57,7 +57,7 @@ contract('ImageRegister', (accounts) => {
       tags1
     )
 
-    truffleAssert.eventEmitted(tx, 'ImageUploaded', (ev) => {
+    truffleAssert.eventEmitted(tx, 'LogImageUploaded', (ev) => {
       return (
         ev._owner === owner &&
         ev._ipfsHash === ipfsHash1 &&

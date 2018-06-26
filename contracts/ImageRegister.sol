@@ -35,7 +35,7 @@ contract ImageRegister is Destructible {
    * @param _tags The image tags
    * @param _uploadedOn The upload timestamp
    */
-  event ImageUploaded(
+  event LogImageUploaded(
     address indexed _owner, 
     string _ipfsHash, 
     string _title, 
@@ -74,7 +74,7 @@ contract ImageRegister is Destructible {
 
     ownerToImages[msg.sender].push(image);
 
-    emit ImageUploaded(
+    emit LogImageUploaded(
       msg.sender,
       _ipfsHash,
       _title,
