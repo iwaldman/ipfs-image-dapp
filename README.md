@@ -21,7 +21,7 @@ For this project, we used the following stack:
 
 ## Installation
 
-1. Install [Truffle Framework](http://truffleframework.com/) and [Ganache CLI](http://truffleframework.com/ganache/) globally. If you prefer, the graphical version of Ganache works as well!
+1. Install [Truffle Framework](http://truffleframework.com/) and [Ganache CLI](http://truffleframework.com/ganache/) globally. If you prefer, the graphical version of Ganache works as well.
     ```bash
     npm install -g truffle
     npm install -g ganache-cli
@@ -33,7 +33,7 @@ For this project, we used the following stack:
     ganache-cli -b 3
     ```
 
-4. Open another terminal, clone this repo then install its dependencies.
+4. Open another terminal, clone this repo and install its dependencies.
     ```bash
     git clone https://github.com/iwaldman/ipfs-image-dapp.git
     cd ipfs-image.dapp
