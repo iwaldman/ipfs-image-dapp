@@ -14,20 +14,45 @@ For this project, we used the following stack:
 - React / Redux / Bootstrap 4 for our front-end development
 - MetaMask for our web3 provider
 
-## Getting Started
+## Prerequisites
 
-* Have [node](https://nodejs.org/en/) installed. If you run into trouble, this was created with `v10.1.0`
-* Install and run [Ganache](http://truffleframework.com/ganache/)
-* Install [MetaMask](https://metamask.io/)
+1. You will need Metamask plugin for Chrome, there are other options available, but only Metamask is covered here.
+2. Make sure you have [Node.js](https://nodejs.org/en/) installed. If you run into trouble, this was created with `v10.1.0`.
+
+## Installation
+
+1. Install [Truffle Framework](http://truffleframework.com/) and [Ganache CLI](http://truffleframework.com/ganache/) globally. If you prefer, the graphical version of Ganache works as well!
+    ```bash
+    npm install -g truffle
+    npm install -g ganache-cli
+    ```
+
+2. Run the development blockchain, we recommend passing in a blocktime. Otherwise, its difficult to track things like loading indicators because Ganache will mine instantly.
+    ```bash
+    // 3 second blocktime.
+    ganache-cli -b 3
+    ```
+
+3. Install [MetaMask](https://metamask.io/)
   1.  Create and connect to a custom RPC network using the Ganache RPC server (currently `http://127.0.0.1:8545`)
-  2.  Import a new account and use the account seed phrase provided by Ganache.
-* Install the [Truffle Framework](http://truffleframework.com/)
-  * `npm install -g truffle`
-* Clone or download the repo
-* Type `npm install`
-  * If you get an error on install, don't panic. It should still work.
-* Type `truffle compile` and `truffle migrate`
-* Type `npm run start`
+  2.  Import a new account and use the account seed phrase provided by Ganache
+
+4. Clone or download the repo
+    ```bash
+    npm i
+    ```
+   * If you get an error on install, don't panic. It should still work.
+   
+5. Compile and migrate the smart contracts.
+    ```bash
+    truffle compile
+    truffle migrate
+    ```
+
+6. Start the application 
+    ```bash
+    npm run start
+    ```
 
 ### Remember these steps when starting a new development session.
 1.  Start Ganache.
