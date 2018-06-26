@@ -59,8 +59,26 @@ For this project, we used the following stack:
 
 ## Testing
 To run the unit tests.
-```bash
-truffle test
+```shell
+$ truffle test
+Using network 'development'.
+
+  Contract: ImageRegister
+    ✓ has an owner
+    ✓ should selfdestruct
+    ✓ should store an image (210ms)
+    ✓ should emit a LogImageUploaded event when storing an image (67ms)
+    ✓ should return image details (152ms)
+    ✓ should return image count (154ms)
+    ✓ should store images for any number of owners (445ms)
+    ✓ should require a valid IPFS hash when uploading an image (41ms)
+    ✓ should require a valid title when uploading an image (44ms)
+    ✓ should require a valid description when uploading an image (96ms)
+    ✓ should require tags when uploading an image (38ms)
+    ✓ should require a valid address when retrieving image count
+    ✓ should require a valid index when retrieving image details
+
+  13 passing (2s)
 ```
 
 ## Troubleshooting Tips
