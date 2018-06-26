@@ -35,7 +35,7 @@ For this project, we used the following stack:
 
 4. Clone or download the repo then install its dependencies.
     ```bash
-    npm i
+    npm install
     ```
    * If you get an error on install, don't panic. It should still work.
    
