@@ -35,8 +35,10 @@ For this project, we used the following stack:
 
 4. Open another terminal, clone this repo and install its dependencies.
     ```bash
-    git clone https://github.com/iwaldman/ipfs-image-dapp.git
+    git clone https://github.com/iwaldman/ipfs-image-dapp.git 
+    
     cd ipfs-image.dapp
+    
     npm install
     ```
    * If you get an error on install, don't panic. It should still work.
@@ -44,6 +46,7 @@ For this project, we used the following stack:
 5. Compile and migrate the smart contracts.
     ```bash
     truffle compile
+    
     truffle migrate
     ```
 
