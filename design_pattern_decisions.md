@@ -1,7 +1,7 @@
 # Design Patterns
 The following are design patterns implemented per Solidity best practices.
 
-## Ciruit Break aka EmergencyStop
+## Circuit Breaker
 The circuit breaker pattern allows the owner to disable or enable a contract by a runtime toggle. This would be desirable in situations where there is a live contract where a bug has been detected. Freezing the contract would be beneficial for reducing harm before a fix can be implemented.
 
   ```javascript
