@@ -26,6 +26,10 @@ contract ImageRegister is Destructible {
   // Maps owner to their images
   mapping (address => Image[]) public ownerToImages;
 
+  // Used by Circuit Breaker pattern to switch contract on / off
+  bool private stopped = false;
+
+
   /**
    * @dev Indicates that a user has uploaded a new image
    * @param _owner The owner of the image
@@ -44,6 +48,22 @@ contract ImageRegister is Destructible {
     uint256 _uploadedOn
   );
 
+  /**
+   * @dev Prevents execution in the case of an emergency
+   */
+  modifier stopInEmergency { 
+    if (!stopped) _;
+  }
+
+  /**  
+   * @dev This function is called for all messages sent to
+   * this contract (there is no other function).
+   * Sending Ether to this contract will cause an exception,
+   * because the fallback function does not have the `payable`
+   * modifier.
+  */
+  function() public {}
+
    /** 
     * @notice associate an image entry with the owner i.e. sender address
     * @param _ipfsHash The IPFS hash
@@ -56,7 +76,7 @@ contract ImageRegister is Destructible {
     string _title, 
     string _description, 
     string _tags
-    ) public returns (bool _success) {
+  ) public stopInEmergency returns (bool _success) {
         
     require(bytes(_ipfsHash).length == 46);
     require(bytes(_title).length > 0 && bytes(_title).length <= 256);
@@ -91,7 +111,11 @@ contract ImageRegister is Destructible {
    * @param _owner The owner address
    * @return The number of images associated with a given address
    */
-  function getImageCount(address _owner) public view returns (uint256) {
+  function getImageCount(address _owner) 
+    public view 
+    stopInEmergency 
+    returns (uint256) 
+  {
     require(_owner != 0x0);
     return ownerToImages[_owner].length;
   }
@@ -106,13 +130,14 @@ contract ImageRegister is Destructible {
    * @return _tags image Then image tags
    * @return _uploadedOn The uploaded timestamp
    */ 
-  function getImage(address _owner, uint8 _index) public view returns (
-    string _ipfsHash, 
-    string _title, 
-    string _description, 
-    string _tags,
-    uint256 _uploadedOn
-    ) {
+  function getImage(address _owner, uint8 _index) 
+    public stopInEmergency view returns (
+      string _ipfsHash, 
+      string _title, 
+      string _description, 
+      string _tags,
+      uint256 _uploadedOn
+  ) {
 
     require(_owner != 0x0);
     require(_index >= 0 && _index <= 2**8 - 1);
@@ -127,5 +152,15 @@ contract ImageRegister is Destructible {
       image.tags, 
       image.uploadedOn
     );
+  }
+
+  /**
+   * @notice It is called Circuit Breakers i.e. Pause contract. 
+   * It stops execution if certain conditions are met and can be useful 
+   * when new errors are discovered. 
+   * @param _stop Switch the circuit breaker on or off
+   */
+  function emergencyStop(bool _stop) public onlyOwner {
+    stopped = _stop;
   }
 }
