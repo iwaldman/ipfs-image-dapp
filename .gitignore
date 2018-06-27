@@ -63,3 +63,5 @@ typings/
 # truffle compile output
 build/
 
+seed.txt
+
