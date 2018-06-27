@@ -12,6 +12,8 @@ The circuit breaker pattern allows the owner to disable or enable a contract by 
     modifier stopInEmergency { require(!stopped); _; }
 
     function deposit() stopInEmergency public { … }
+    
+  }
   ```
 
 ## Mortal
