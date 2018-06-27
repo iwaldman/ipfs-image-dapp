@@ -33,21 +33,21 @@ We have mitigated against this risk by:
  * Avoiding looping behavior where e.g. a function costs more and more gas each time is used.
 
 ## DoS with Block Gas Limit
-Does not loop over arrays of undetermined length.
+We do not loop over arrays of undetermined length.
 
-Requires caller to specify an index when retrieving specific image details. 
+The caller is required to specify an index when retrieving specific image details. 
 
-Limits the length of user supplied data. Each string has a max length.
+There are limits to the length of user supplied data. Each string has a max length.
 
-These practices reduces the chance of the gas cost exceeding the gas limit.
+These practices reduce the chance of the gas cost exceeding the gas limit.
 
 ## TX.ORIGIN Problem
 
 The contract uses msg.sender instead of tx.origin.
 
-
 ## Exposed Functions
 It is easy to accidentally expose a contract function which was meant to be internal, or to omit protection on a function which was meant to be called only by priviledged accounts (e.g. by the creator).
 
 We have mitigated against this risk by:
+ * Following coding standards and best practices. This is verified by running the Solidity linter [solium](http://solium.readthedocs.io/en/latest/user-guide.html).
  * Auditing the compiler-generated ABI to ensure no unexpected functions appear.
