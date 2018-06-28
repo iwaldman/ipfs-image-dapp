@@ -38,7 +38,3 @@ We implement the mortal design pattern using the [Destrucible](https://openzeppe
 
 This function is called for all messages sent to this contract (there is no other function). Sending Ether to this contract will cause an exception,
 because the fallback function does not have the `payable` modifier.
-
-## Other Considerations
-
-Factory pattern
