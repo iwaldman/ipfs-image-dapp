@@ -31,7 +31,7 @@ For this project, we used the following stack:
 - MetaMask for our web3 provider
 - OpenZeppelin library
 
-## Pre-requisites
+## Prerequisites
 
 1.  You will need Metamask plugin for Chrome. While there are other options available, only Metamask is covered here.
 2.  Make sure you have [Node.js](https://nodejs.org/en/) installed. If you run into trouble, this was created with `v10.1.0`.
