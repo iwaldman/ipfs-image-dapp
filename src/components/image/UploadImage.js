@@ -42,7 +42,7 @@ class UploadImage extends Component {
         this.props.history
       )
       toastr.success(
-        'Image uploaded... it may take a while to appear in the list.'
+        'Image uploaded.  It may take a while for MetaMask to respond, the transaction to be mined and the image to appear in the list.'
       )
     } catch (error) {
       toastr.error(error)
