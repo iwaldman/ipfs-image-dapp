@@ -8,8 +8,9 @@ contract('ImageRegister', (accounts) => {
 
   // A few owner accounts
   const owner = accounts[0]
-  const owner2 = accounts[1]
-  const owner3 = accounts[2]
+  const bob = accounts[1]
+  const sally = accounts[2]
+  const emptyAddress = '0x0000000000000000000000000000000000000000'
 
   // Imaage 1
   const ipfsHash1 = 'QmWWQSuPMS6aXCbZKpEjPHPUZN2NjB3YrhJTHsV4X3vb2t'
@@ -82,11 +83,23 @@ contract('ImageRegister', (accounts) => {
 
     const image = await imageRegisterInstance.getImage(owner, 0)
 
-    assert.equal(image[0], ipfsHash1, 'has the correct IPFS hash')
-    assert.equal(image[1], title1, 'has the correct title')
-    assert.equal(image[2], description1, 'has the correct description')
-    assert.equal(image[3], tags1, 'has the correct tags')
-    assert.notEqual(image[4], 0, 'has an uploadedOn date')
+    assert.equal(
+      image[0],
+      ipfsHash1,
+      'the IPFS hash does not match the expected value'
+    )
+    assert.equal(
+      image[1],
+      title1,
+      'the title does not match the expected value'
+    )
+    assert.equal(
+      image[2],
+      description1,
+      'the description does not match the expected value'
+    )
+    assert.equal(image[3], tags1, 'the tags do not match the expected value')
+    assert.notEqual(image[4], 0, 'the uploadedOn date should be non-zero')
   })
 
   it('should return image count', async () => {
@@ -112,7 +125,7 @@ contract('ImageRegister', (accounts) => {
 
     const count = await imageRegisterInstance.getImageCount(owner)
 
-    assert.equal(count.toNumber(), 2, 'has the correct image count')
+    assert.equal(count.toNumber(), 2, 'image count should be 2')
   })
 
   it('should store images for any number of owners', async () => {
@@ -127,14 +140,14 @@ contract('ImageRegister', (accounts) => {
       }
     )
 
-    // Upload two images for owner 2
+    // Upload two images for bob
     await imageRegisterInstance.uploadImage(
       ipfsHash1,
       title1,
       description1,
       tags1,
       {
-        from: owner2,
+        from: bob,
       }
     )
 
@@ -144,37 +157,37 @@ contract('ImageRegister', (accounts) => {
       description2,
       tags2,
       {
-        from: owner2,
+        from: bob,
       }
     )
 
-    // Upload one image for owner 3
+    // Upload one image for sally
     await imageRegisterInstance.uploadImage(
       ipfsHash1,
       title1,
       description1,
       tags1,
       {
-        from: owner3,
+        from: sally,
       }
     )
 
     assert.equal(
       (await imageRegisterInstance.getImageCount(owner)).toNumber(),
       1,
-      'has the correct image count for owner 1'
+      'image count should be 1 for primary owner'
     )
 
     assert.equal(
-      (await imageRegisterInstance.getImageCount(owner2)).toNumber(),
+      (await imageRegisterInstance.getImageCount(bob)).toNumber(),
       2,
-      'has the correct image count for owner 2'
+      'image count should be 2 for bob'
     )
 
     assert.equal(
-      (await imageRegisterInstance.getImageCount(owner3)).toNumber(),
+      (await imageRegisterInstance.getImageCount(sally)).toNumber(),
       1,
-      'has the correct image count for owner 3'
+      'image count should be 1 for sally'
     )
   })
 
@@ -318,7 +331,7 @@ contract('ImageRegister', (accounts) => {
 
   it('should require a valid address when retrieving image count', async () => {
     try {
-      await imageRegisterInstance.getImageCount(0x0)
+      await imageRegisterInstance.getImageCount(emptyAddress)
       assert.fail('Expected throw not received')
     } catch (error) {
       assert(
@@ -358,5 +371,51 @@ contract('ImageRegister', (accounts) => {
         'error message must contain revert'
       )
     }
+  })
+
+  it('should allow the owner to perform an emergency stop', async () => {
+    await imageRegisterInstance.emergencyStop(true, { from: owner })
+  })
+
+  it('should disallow a non-owner to perform an emergency stop', async () => {
+    try {
+      await imageRegisterInstance.emergencyStop(true, { from: bob })
+      assert.fail('Expected throw not received')
+    } catch (error) {
+      assert(
+        error.message.indexOf('revert') >= 0,
+        'error message must contain revert'
+      )
+    }
+  })
+
+  it('should disallow uploading an image when there is an emergency stop', async () => {
+    await imageRegisterInstance.emergencyStop(true, { from: owner })
+
+    try {
+      await imageRegisterInstance.uploadImage(
+        ipfsHash1,
+        title1,
+        description1,
+        '',
+        {
+          from: bob,
+        }
+      )
+      assert.fail('Expected throw not received')
+    } catch (error) {
+      assert(
+        error.message.indexOf('revert') >= 0,
+        'error message must contain revert'
+      )
+    }
+  })
+
+  it('should emit a LogEmergencyStop event when performing an emergency stop', async () => {
+    const tx = await imageRegisterInstance.emergencyStop(true, { from: owner })
+
+    truffleAssert.eventEmitted(tx, 'LogEmergencyStop', (ev) => {
+      return ev._owner === owner && ev._stop === true
+    })
   })
 })

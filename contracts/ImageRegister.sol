@@ -29,7 +29,6 @@ contract ImageRegister is Destructible {
   // Used by Circuit Breaker pattern to switch contract on / off
   bool private stopped = false;
 
-
   /**
    * @dev Indicates that a user has uploaded a new image
    * @param _owner The owner of the image
@@ -49,10 +48,21 @@ contract ImageRegister is Destructible {
   );
 
   /**
+   * @dev Indicates that the owner has performed an emergency stop
+   * @param _owner The owner of the image
+   * @param _stop Indicates whether to stop or resume
+   */
+  event LogEmergencyStop(
+    address indexed _owner, 
+    bool _stop
+  );
+
+  /**
    * @dev Prevents execution in the case of an emergency
    */
   modifier stopInEmergency { 
-    if (!stopped) _;
+    require(!stopped); 
+    _;
   }
 
   /**  
@@ -162,5 +172,6 @@ contract ImageRegister is Destructible {
    */
   function emergencyStop(bool _stop) public onlyOwner {
     stopped = _stop;
+    emit LogEmergencyStop(owner, _stop);
   }
 }
