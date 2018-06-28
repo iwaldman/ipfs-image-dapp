@@ -2,9 +2,9 @@
 
 ## Overview
 
-IPFS and the Blockchain are a perfect match. Why? You can address large amounts of data with IPFS, and place the immutable, permanent IPFS links into a blockchain transaction. This will timestamp and secure your content, without having to put the data on the chain itself. You now have undisputable proof that your image existed at that time it was uploaded. Awesome, right?
+This is a decentralized application (dApp) that demonstrates how to implement IPFS file uploads and store the IPFS hash in an Ethereum smart contract.
 
-This project is a basic decentralized application that demonstrates how to implement IPFS file uploads and store the IPFS hash in an Ethereum smart contract.
+IPFS and the Blockchain are a perfect match. Why? You can address large amounts of data with IPFS, and place the immutable, permanent IPFS links into a blockchain transaction. This will timestamp and secure your content, without having to put the data on the chain itself. You now have undisputable proof that your image existed at that time it was uploaded. 
 
 ## Our stack
 
@@ -107,6 +107,12 @@ Using network 'development'.
 
   17 passing (2s)
 ```
+
+## Usage 
+
+In this application, the main page displays a list of images filtered by who uploaded the image.  Each image displays the image, title, description, tags and IPFS hash.
+
+![IPFS Image dApp](/assets/app.jpg?raw=true "IPFS Image dApp")
 
 ## Troubleshooting Tips
 
