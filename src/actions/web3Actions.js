@@ -15,9 +15,9 @@ export const web3Connect = () => async (dispatch, getHistory) => {
     const contractInstance = await imageRegisterContract.deployed()
 
     // start watching the contract events
-    contractInstance.ImageUploaded((error, result) => {
+    contractInstance.LogImageUploaded((error, result) => {
       if (error) {
-        console.log('ImageUploaded event ERR', error)
+        console.log('LogImageUploaded event ERR', error)
         dispatch({
           type: WEB3_ERROR,
           payload: {
@@ -26,7 +26,7 @@ export const web3Connect = () => async (dispatch, getHistory) => {
           },
         })
       } else {
-        console.log('ImageUploaded event', result)
+        console.log('LogImageUploaded event', result)
         dispatch(getImages())
       }
     })
