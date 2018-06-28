@@ -20,6 +20,7 @@ For this project, we used the following stack:
 ## Pre-requisites
 
 1.  You will need Metamask plugin for Chrome. While there are other options available, only Metamask is covered here.
+
 2.  Make sure you have [Node.js](https://nodejs.org/en/) installed. If you run into trouble, this was created with `v10.1.0`.
 
 ## Installation
@@ -31,7 +32,14 @@ For this project, we used the following stack:
     npm install -g ganache-cli
     ```
 
-2.  Run the development blockchain passing in a blocktime. Otherwise, its difficult to track things like loading indicators because Ganache will mine instantly.
+2.  Run the development blockchain.
+
+    ```bash
+    // no blocktime specified so transaction will bne mined instantly
+    ganache-cli
+    ```
+
+You may want to pass in a blocktime. Otherwise, it's difficult to track things like loading indicators because Ganache will mine instantly. I've noticed that using a blocktime while running `truffle test` causes issues.
 
     ```bash
     // 3 second blocktime

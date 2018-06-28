@@ -12,12 +12,13 @@ class Navbar extends Component {
                 <h4 className="text-white">About</h4>
                 <p className="text-white">Proof of Digital Existence</p>
                 <p className="text-muted">
-                  IPFS and the Blockchain are a perfect match! You can address
-                  large amounts of data with IPFS, and place the immutable,
-                  permanent IPFS links into a blockchain transaction. This
-                  timestamps and secures your content, without having to put the
-                  data on the chain itself. You now have undisputable proof that
-                  your image existed at that time it was uploaded.
+                  IPFS and the Blockchain are a perfect match. Why? You can
+                  address large amounts of data with IPFS, and place the
+                  immutable, permanent IPFS links into a blockchain transaction.
+                  This will timestamp and secure your content, without having to
+                  put the data on the chain itself. You now have undisputable
+                  proof that your image existed at that time it was uploaded.
+                  Awesome, right?
                 </p>
               </div>
               <div className="col-sm-4 offset-md-1 py-4">
