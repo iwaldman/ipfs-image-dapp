@@ -10,13 +10,13 @@ IPFS and the Blockchain are a perfect match. Why? You can address large amounts 
 
 ### Main Page
 
-In this application, the main page displays a list of images filtered by who uploaded the image. Each image displays the image, title, description, tags and IPFS hash.
+In this application, the main page displays a list of images filtered by owner. Each image displays the image, title, description, tags, upload timestamp and IPFS hash.
 
 ![IPFS Image dApp](https://github.com/iwaldman/ipfs-image-dapp/blob/master/app.png?raw=true 'IPFS Image dApp')
 
 ### Upload an Image
 
-Click Upload Image to upload an image to IPFS and the blockchain. You will are asked to enter an image title, description and appropriate tags. Click Upload to submit.
+Click *Upload Image* to upload an image to IPFS and the blockchain. You will are required to enter an image title, optional description and appropriate tags. Click *Upload* to submit.
 
 ![IPFS Image dApp](https://github.com/iwaldman/ipfs-image-dapp/blob/master/upload-image.png?raw=true 'IPFS Image dApp')
 
