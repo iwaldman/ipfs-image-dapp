@@ -110,9 +110,9 @@ Using network 'development'.
 
 ## Usage 
 
-In this application, the main page displays a list of images filtered by who uploaded the image.
+In this application, the main page displays a list of images filtered by who uploaded the image.  Each image displays the image, title, description, tags and IPFS hash.
 
-Each image displays the image, title, description, tags and IPFS hash.
+![IPFS Image dApp](/assets/app.jpg?raw=true "IPFS Image dApp")
 
 ## Troubleshooting Tips
 
