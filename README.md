@@ -39,7 +39,7 @@ For this project, we used the following stack:
     ganache-cli
     ```
 
-You may want to pass in a blocktime. Otherwise, it's difficult to track things like loading indicators because Ganache will mine instantly. I've noticed that using a blocktime while running `truffle test` causes issues.
+    You may want to pass in a blocktime. Otherwise, it's difficult to track things like loading indicators because Ganache         will mine instantly. I've noticed that using a blocktime while running `truffle test` causes issues.
 
     ```bash
     // 3 second blocktime
