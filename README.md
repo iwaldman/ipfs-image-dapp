@@ -137,7 +137,7 @@ Using network 'development'.
 
 This application is a marriage of [Truffle](http://truffleframework.com/) and a React project created with [create-react-app](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md). Either one would be a great place to start.
 
-You can also check out the official sites for [OpenZeppelin](https://openzeppelin.org/) library and [IPFS](https://ipfs.io/).
+You can also check out the official sites for the [Ethereum Project](https://ethereum.org/), [OpenZeppelin](https://openzeppelin.org/) library and [IPFS](https://ipfs.io/).
 
 ## Notes
 
