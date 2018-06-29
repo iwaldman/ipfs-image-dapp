@@ -165,6 +165,8 @@ Steps to deploy our smart contract directly from Truffle with Infura to the Rink
     ```
 4. Run the application as described above.
 
+Check out the awesome tutorial [Deploy Your Smart Contract Directly from Truffle with Infura](https://medium.com/coinmonks/deploy-your-smart-contract-directly-from-truffle-with-infura-ba1e1f1d40c2) by Hyungsuk Kang.
+
 ## Troubleshooting Tips
 
 - Is Ganache running?
