@@ -144,3 +144,6 @@ You can also check out the official sites for the [Ethereum Project](https://eth
 This project uses [Bootstrap 4](https://getbootstrap.com/).
 
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+
+# License
+MIT
