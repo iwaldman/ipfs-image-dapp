@@ -12,13 +12,13 @@ This dApp demonstrates how to implement IPFS file uploads and store the IPFS has
 
 In this application, the main page displays a list of images filtered by owner. Each image displays the image, title, description, tags, upload timestamp and IPFS hash.
 
-![IPFS Image dApp](https://github.com/iwaldman/ipfs-image-dapp/blob/master/app.png?raw=true 'IPFS Image dApp')
+![IPFS Image dApp](../master/app.png?raw=true 'IPFS Image dApp')
 
 ### Upload an Image
 
 Click *Upload Image* to upload an image to IPFS and the blockchain. You will are required to enter an image title, optional description and appropriate tags. Click *Upload* to submit.
 
-![IPFS Image dApp](https://github.com/iwaldman/ipfs-image-dapp/blob/master/upload-image.png?raw=true 'IPFS Image dApp')
+![IPFS Image dApp](../master/upload-image.png?raw=true 'IPFS Image dApp')
 
 ## Our stack
 
@@ -33,8 +33,8 @@ For this project, we used the following stack:
 
 ## Prerequisites
 
-1.  You will need Metamask plugin for Chrome. While there are other options available, only Metamask is covered here.
-2.  Make sure you have [Node.js](https://nodejs.org/en/) installed. If you run into trouble, this was created with `v10.1.0`.
+1.  You will need [Metamask](https://metamask.io/) plugin for Chrome. 
+2.  Make sure you have [Node.js](https://nodejs.org/en/) installed. 
 
 ## Installation
 
@@ -52,7 +52,9 @@ For this project, we used the following stack:
     ganache-cli
     ```
 
-    You may want to pass in a blocktime. Otherwise, it's difficult to track things like loading indicators because Ganache will mine instantly. I've noticed that using a blocktime while running `truffle test` causes issues.
+    You may want to pass in a blocktime. Otherwise, it's difficult to track things like loading indicators because Ganache will mine instantly. 
+    
+    **Note**: I've noticed that using a blocktime while running `truffle test` causes issues.
 
     ```bash
     // 3 second blocktime
@@ -75,8 +77,10 @@ For this project, we used the following stack:
 
     ```bash
     truffle compile
-
     truffle migrate
+    
+    # You can combine into one command
+    truffle migrate --reset ---compile-all    
     ```
 
 5.  Start the application
@@ -88,9 +92,11 @@ For this project, we used the following stack:
 6.  Navigate to http://localhost:3000/ in your browser.
 
 7.  Remember to connect [MetaMask](https://metamask.io/) to one of your local Ganache Ethereum accounts
-    - Connect to Localhost 8545, alternatively,
-    - Create and connect to a custom RPC network using the Ganache RPC server (currently `http://127.0.0.1:8545`)
+    - Connect to Localhost 8545, or
+    - Create and connect to a custom RPC network using the Ganache RPC server (currently `http://127.0.0.1:8545`), then
     - Import a new account and use the account seed phrase provided by Ganache
+    
+      ![IPFS Image dApp](../master/metamask-choose-network.png?raw=true 'IPFS Image dApp')
 
 ## Testing
 
@@ -121,6 +127,20 @@ Using network 'development'.
 
   17 passing (2s)
 ```
+## Deploy to Rinkeby
+Steps to deploy our smart contract directly from Truffle with Infura to the Rinkeby TestNet.
+
+1. Get an [Infura](https://infura.io/) API key.  You can sign up for [free](https://infura.io/signup).
+2. Update the .env file with your MetaMask mnenomic and Infuri API Key
+    ```javascript
+    MNENOMIC = // Your MetaMask's recovery words
+    INFURA_API_KEY = // Your Infura API Key after its registration
+    ```
+3. Deploy to Rinkeby
+    ```bash
+    truffle migrate --reset --compile-all --network rinkeby
+    ```
+4. Run the application as described above.
 
 ## Troubleshooting Tips
 
