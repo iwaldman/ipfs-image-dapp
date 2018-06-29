@@ -91,6 +91,8 @@ For this project, we used the following stack:
     - Connect to Localhost 8545, alternatively,
     - Create and connect to a custom RPC network using the Ganache RPC server (currently `http://127.0.0.1:8545`)
     - Import a new account and use the account seed phrase provided by Ganache
+    
+      ![IPFS Image dApp](https://github.com/iwaldman/ipfs-image-dapp/blob/master/metamask-choose-network.png?raw=true 'IPFS Image dApp')
 
 ## Testing
 
