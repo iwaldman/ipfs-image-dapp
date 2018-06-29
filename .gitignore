@@ -63,6 +63,4 @@ typings/
 # truffle compile output
 build/
 
-# truffle config variables
-#.env
 
