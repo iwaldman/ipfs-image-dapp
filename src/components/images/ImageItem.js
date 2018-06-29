@@ -39,6 +39,14 @@ class ImageItem extends Component {
                 </span>
               ))}
             </p>
+            <hr />
+            <a
+              target="_blank"
+              href={`https://ipfs.io/ipfs/${ipfsHash}`}
+              class="card-link"
+            >
+              View on IPFS
+            </a>
           </div>
           <div className="card-footer text-muted">
             <small>{`Uploaded on ${uploadedOn}`}</small>

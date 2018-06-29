@@ -122,6 +122,10 @@ class UploadImage extends Component {
                   <div className="invalid-feedback">Image required.</div>
                 </div>
                 <small className="d-block pb-3">* = required fields</small>
+                <small className="d-block pb-3">
+                  Uploading the same file multiple times will result in the same
+                  file with the same hash being uploaded.
+                </small>
                 <div className="mb-3">
                   <Link to="/" className="btn btn-secondary mr-2">
                     Cancel
