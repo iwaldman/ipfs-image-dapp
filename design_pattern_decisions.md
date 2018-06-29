@@ -49,6 +49,6 @@ In addition to that, to enable receiving Ether, you have to mark the fallback fu
 See [Solidity Fallback Functions](https://www.bitdegree.org/learn/solidity-fallback-functions/) for more details.
 
 ## Other considerations
-An IPFS hash is often represented using 46 character long Base58 encoding(e.g. QmahqCsAUAw7zMv6P6Ae8PjCTck7taQA6FgGQLnWdKG7U8). As a result, an IPFS hash cannot fit in the largest fixed-size byte arrays bytes32.
+An IPFS hash is often represented using 46 character long Base58 encoding e.g. QmahqCsAUAw7zMv6P6Ae8PjCTck7taQA6FgHQLnWdKG7U98. As a result, an IPFS hash cannot fit in the largest fixed-size byte arrays bytes32.
 
 We choose to use string which is a dynamically sized datatype that did not require us to perform any conversions while serving for demo purposes. Any enterprise app would need to convert base58 encoded strings to and from smart contract arguments and responses.
