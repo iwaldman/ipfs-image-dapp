@@ -127,7 +127,7 @@ Using network 'development'.
 
   17 passing (2s)
 ```
-## Deploy to Rinkeby
+## Deploy to Rinkeby TestNet
 Steps to deploy our smart contract directly from Truffle with Infura to the Rinkeby TestNet.
 
 1. Get an [Infura](https://infura.io/) API key.  You can sign up for [free](https://infura.io/signup).
