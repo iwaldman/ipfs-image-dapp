@@ -4,11 +4,11 @@ The following are design patterns we implemented in the ImageRegister Smart Cont
 
 ## Storage Optimization
 
-Writing to blockchain can be expensive, as data stored forever. We must consider
-smart ways to use memory (eventually, compilation will be better, but for now
-benefits to planning data structures - and storing min amount in blockchain).
+Writing to blockchain can be expensive, as data is stored forever. We must consider smart ways to use memory while storing minimum amount in blockchain.
 
-IPFS is perfect for storing large amounts of data. We only need to place the immutable, permanent IPFS links into a blockchain transaction. Doing so, we timestamp and secure the content, without having to put the data on the chain itself. Awesome, right?
+IPFS is perfect for storing large amounts of data. We only need to place the immutable, permanent IPFS links into a blockchain transaction. Doing so, we timestamp and secure the content, without having to put the data on the chain itself. 
+
+Awesome, right?
 
 ## Circuit Breaker
 
@@ -21,7 +21,7 @@ contract CircuitBreaker {
 
   modifier stopInEmergency { require(!stopped); _; }
 
-  function deposit() stopInEmergency public { … }
+  function shootFoot() stopInEmergency public { … }
 
 }
 ```
@@ -32,9 +32,19 @@ Implementing the mortal design pattern means including the ability to destroy th
 
 You can destroy a contract using the selfdestruct keyword. The function to do it is often called kill. It takes one parameter which is the address that will receive all of the funds that the contract currently holds. As an irreversible action, restricting access to this function is important.
 
-We implement the mortal design pattern using the [Destrucible](https://openzeppelin.org/api/docs/lifecycle_Destructible.html) contract from the awesome [OpenZeppelin](https://openzeppelin.org/) library.
+We implement the mortal design pattern using the [Destrucible](https://openzeppelin.org/api/docs/lifecycle_Destructible.html) contract from the [OpenZeppelin](https://openzeppelin.org/) library.
 
 ## Fallback Function
 
-This function is called for all messages sent to this contract (there is no other function). Sending Ether to this contract will cause an exception,
-because the fallback function does not have the `payable` modifier.
+A Solidity contract may have a single unnamed function, no more no less. This functions cannot have any arguments, nor return anything.
+
+That is what we refer to as a fallback function.
+
+Fallback functions are executed if a contract is called and no other function matches the specified function identifier, or if no data is supplied.
+
+These functions are also executed whenever a contract would receive plain Ether, without any data.
+
+In addition to that, to enable receiving Ether, you have to mark the fallback function payable. When no function like that is present, the contract is unable to receive Ether cia regular transactions.
+
+See [Solidity Fallback Functions](https://www.bitdegree.org/learn/solidity-fallback-functions/) for more details.
+
