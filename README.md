@@ -33,8 +33,8 @@ For this project, we used the following stack:
 
 ## Prerequisites
 
-1.  You will need Metamask plugin for Chrome. While there are other options available, only Metamask is covered here.
-2.  Make sure you have [Node.js](https://nodejs.org/en/) installed. If you run into trouble, this was created with `v10.1.0`.
+1.  You will need [Metamask](https://metamask.io/) plugin for Chrome. 
+2.  Make sure you have [Node.js](https://nodejs.org/en/) installed. 
 
 ## Installation
 
@@ -125,6 +125,21 @@ Using network 'development'.
 
   17 passing (2s)
 ```
+## Deploy to Rinkeby
+Steps to deploy our smart contract directly from Truffle with Infur to the Rinkeby TestNet.
+
+0. Get [Metamask](https://metamask.io/) plugin for Chrome
+1. Get an [Infura](https://infura.io/) API key.  You can sign up for [free](https://infura.io/signup).
+2. Update the .env file with your MetaMask mnenomic and Infuri API Key
+    ```javascript
+    MNENOMIC = // Your MetaMask's recovery words
+    INFURA_API_KEY = // Your Infura API Key after its registration
+    ```
+3. Deploy to Rinkeby
+    ```bash
+    truffle migrate --reset --compile-all --network rinkeby
+    ```
+4. Run the application as described above.
 
 ## Troubleshooting Tips
 
