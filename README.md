@@ -136,7 +136,8 @@ Steps to deploy our smart contract directly from Truffle with Infura to the Rink
     MNENOMIC = // Your MetaMask's recovery words
     INFURA_API_KEY = // Your Infura API Key after its registration
     ```
-3. Deploy to Rinkeby
+3. Deploy to Rinkeby with `truffle migrate --reset --compile-all --network rinkeby'
+    
     ```bash
     $ truffle migrate --reset --compile-all --network rinkeby
     Compiling ./contracts/ImageRegister.sol...
