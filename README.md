@@ -131,6 +131,10 @@ Using network 'development'.
 Steps to deploy our smart contract directly from Truffle with Infura to the Rinkeby TestNet.
 
 1. Get an [Infura](https://infura.io/) API key.  You can sign up for [free](https://infura.io/signup).
+2. Create a .env file in the root directory
+    ```bash
+    touch .env
+    ```
 2. Update the .env file with your MetaMask mnenomic and Infura API Key
     ```javascript
     MNENOMIC = // Your MetaMask's recovery words
