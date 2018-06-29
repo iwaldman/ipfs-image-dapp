@@ -77,8 +77,10 @@ For this project, we used the following stack:
 
     ```bash
     truffle compile
-
     truffle migrate
+    
+    # You can combine into one command
+    truffle migrate --reset ---compile-all    
     ```
 
 5.  Start the application
