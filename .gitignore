@@ -63,5 +63,6 @@ typings/
 # truffle compile output
 build/
 
-seed.txt
+# truffle config variables
+#.env
 

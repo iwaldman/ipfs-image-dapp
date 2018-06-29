@@ -105,7 +105,7 @@ class UploadImage extends Component {
                     onChange={this.handleChange}
                     required
                   />
-                  <small id="tagsHelpBlock" class="form-text text-muted">
+                  <small id="tagsHelpBlock" className="form-text text-muted">
                     Comma-deliminted e.g Baseball, Softball Soccer.
                   </small>
                   <div className="invalid-feedback">Tags are required.</div>

@@ -20,8 +20,6 @@ module.exports = {
         'https://ropsten.infura.io/' + process.env.INFURA_API_KEY
       ),
       network_id: 3,
-      gas: 3000000,
-      gasPrice: 21,
     },
     kovan: {
       provider: new HDWalletProvider(
@@ -29,8 +27,6 @@ module.exports = {
         'https://kovan.infura.io/' + process.env.INFURA_API_KEY
       ),
       network_id: 42,
-      gas: 3000000,
-      gasPrice: 21,
     },
     rinkeby: {
       provider: new HDWalletProvider(
@@ -38,8 +34,6 @@ module.exports = {
         'https://rinkeby.infura.io/' + process.env.INFURA_API_KEY
       ),
       network_id: 4,
-      gas: 3000000,
-      gasPrice: 21,
     },
     // main ethereum network(mainnet)
     main: {
@@ -48,8 +42,6 @@ module.exports = {
         'https://mainnet.infura.io/' + process.env.INFURA_API_KEY
       ),
       network_id: 1,
-      gas: 3000000,
-      gasPrice: 21,
     },
   },
 }
