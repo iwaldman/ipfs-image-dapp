@@ -12,13 +12,13 @@ This dApp demonstrates how to implement IPFS file uploads and store the IPFS has
 
 In this application, the main page displays a list of images filtered by owner. Each image displays the image, title, description, tags, upload timestamp and IPFS hash.
 
-![IPFS Image dApp](https://github.com/iwaldman/ipfs-image-dapp/blob/master/app.png?raw=true 'IPFS Image dApp')
+![IPFS Image dApp](../master/app.png?raw=true 'IPFS Image dApp')
 
 ### Upload an Image
 
 Click *Upload Image* to upload an image to IPFS and the blockchain. You will are required to enter an image title, optional description and appropriate tags. Click *Upload* to submit.
 
-![IPFS Image dApp](https://github.com/iwaldman/ipfs-image-dapp/blob/master/upload-image.png?raw=true 'IPFS Image dApp')
+![IPFS Image dApp](../master/upload-image.png?raw=true 'IPFS Image dApp')
 
 ## Our stack
 
@@ -92,7 +92,7 @@ For this project, we used the following stack:
     - Create and connect to a custom RPC network using the Ganache RPC server (currently `http://127.0.0.1:8545`), then
     - Import a new account and use the account seed phrase provided by Ganache
     
-      ![IPFS Image dApp](https://github.com/iwaldman/ipfs-image-dapp/blob/master/metamask-choose-network.png?raw=true 'IPFS Image dApp')
+      ![IPFS Image dApp](../master/metamask-choose-network.png?raw=true 'IPFS Image dApp')
 
 ## Testing
 
