@@ -135,11 +135,11 @@ Using network 'development'.
 
 ## Where can I find more documentation?
 
-This application is a marriage of [Truffle](http://truffleframework.com/) and a React setup created with [create-react-app](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md). Either one would be a great place to start.
+This application is a marriage of [Truffle](http://truffleframework.com/) and a React project created with [create-react-app](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md). Either one would be a great place to start.
+
+You can also check out the [OpenZeppelin](https://openzeppelin.org/) library and [IPFS](https://ipfs.io/).
 
 ## Notes
-
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 This project uses [Bootstrap 4](https://getbootstrap.com/).
 
