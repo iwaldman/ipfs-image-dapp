@@ -53,4 +53,4 @@ An IPFS hash is often represented using 46 character long Base58 encoding e.g. Q
 
 As a result, an IPFS hash cannot fit in the largest fixed-size byte arrays of bytes32.
 
-We choose to use string which is a dynamically sized datatype that did not require us to perform any conversions while serving for demo purposes. Any enterprise app would need to convert base58 encoded strings to and from smart contract arguments and responses.
+We chose to use string which is a dynamically sized datatype that did not require us to perform any conversions while serving our demo purposes. Any enterprise app would need to convert base58 encoded strings to and from smart contract arguments and responses.
