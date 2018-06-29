@@ -2,9 +2,9 @@
 
 ## Overview
 
-This is a decentralized application (dApp) that demonstrates how to implement IPFS file uploads and store the IPFS hash in an Ethereum smart contract.
-
 IPFS and the Blockchain are a perfect match. Why? You can address large amounts of data with IPFS, and place the immutable, permanent IPFS links into a blockchain transaction. This will timestamp and secure your content, without having to put the data on the chain itself. You now have undisputable proof that your image existed at that time it was uploaded.
+
+This dApp demonstrates how to implement IPFS file uploads and store the IPFS hash on the blockchain.
 
 ## Usage
 
