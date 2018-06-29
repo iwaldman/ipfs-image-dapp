@@ -12,26 +12,29 @@ contract('ImageRegister', (accounts) => {
   const sally = accounts[2]
   const emptyAddress = '0x0000000000000000000000000000000000000000'
 
-  // Imaage 1
+  // Imaage 1 details
   const ipfsHash1 = 'QmWWQSuPMS6aXCbZKpEjPHPUZN2NjB3YrhJTHsV4X3vb2t'
   const title1 = 'Columbia Deep'
   const description1 = 'Wall Dive on Columbia Reef at 150 feet'
   const tags1 = 'Scuba Diving, Cozumel, Reef'
 
-  // Imaage 2
+  // Imaage 2 details
   const ipfsHash2 = 'QmWzQSuPMSa6XcBZKpEjPHPUZN2NjB3YrhJHTsV4X3bv1t'
   const title2 = 'Palacar Caves'
   const description2 = 'Shallow cave dive at 60 feet'
   const tags2 = 'Scuba Diving, Cozumel, Reef'
 
+  // Create a new instance of the contract before each test
   beforeEach('setup contract for each test', async () => {
     imageRegisterInstance = await ImageRegister.new(accounts[0])
   })
 
+  // It should have an owner
   it('has an owner', async () => {
     assert.equal(await imageRegisterInstance.owner(), owner, 'has an owner')
   })
 
+  // It should support self-destruction i.e. mortal pattern
   it('should selfdestruct', async () => {
     try {
       await imageRegisterInstance.destroy()
@@ -40,6 +43,7 @@ contract('ImageRegister', (accounts) => {
     }
   })
 
+  // It should store an image on the blockchain
   it('should store an image', async () => {
     const success = await imageRegisterInstance.uploadImage.call(
       ipfsHash1,
@@ -70,6 +74,7 @@ contract('ImageRegister', (accounts) => {
     })
   })
 
+  // It should return details of an image previously stored on the blockchain
   it('should return image details', async () => {
     await imageRegisterInstance.uploadImage(
       ipfsHash1,
@@ -102,6 +107,7 @@ contract('ImageRegister', (accounts) => {
     assert.notEqual(image[4], 0, 'the uploadedOn date should be non-zero')
   })
 
+  // It should return the correct image count
   it('should return image count', async () => {
     await imageRegisterInstance.uploadImage(
       ipfsHash1,
@@ -128,6 +134,7 @@ contract('ImageRegister', (accounts) => {
     assert.equal(count.toNumber(), 2, 'image count should be 2')
   })
 
+  // It should store images for any owner
   it('should store images for any number of owners', async () => {
     // Upload one image for owner 1
     await imageRegisterInstance.uploadImage(
@@ -191,6 +198,7 @@ contract('ImageRegister', (accounts) => {
     )
   })
 
+  // It should require a valid IPFS hash
   it('should require a valid IPFS hash when uploading an image', async () => {
     const badIPFSHash = ipfsHash1.slice(0, ipfsHash1.length / 2)
 
@@ -225,6 +233,7 @@ contract('ImageRegister', (accounts) => {
     }
   })
 
+  // It should require a valid title where the length cannot be greater than 256
   it('should require a valid title when uploading an image', async () => {
     try {
       await imageRegisterInstance.uploadImage(
@@ -263,6 +272,7 @@ contract('ImageRegister', (accounts) => {
     }
   })
 
+  // It should require a valid description where the length cannot be greater than 1024
   it('should require a valid description when uploading an image', async () => {
     try {
       await imageRegisterInstance.uploadImage(ipfsHash1, title1, '', tags1, {
@@ -291,6 +301,7 @@ contract('ImageRegister', (accounts) => {
     }
   })
 
+  // It should require tags where the combined list length cannot be greater than 256
   it('should require tags when uploading an image', async () => {
     try {
       await imageRegisterInstance.uploadImage(
@@ -329,6 +340,7 @@ contract('ImageRegister', (accounts) => {
     }
   })
 
+  // It should require an owner address when retriving the image count
   it('should require a valid address when retrieving image count', async () => {
     try {
       await imageRegisterInstance.getImageCount(emptyAddress)
@@ -341,6 +353,7 @@ contract('ImageRegister', (accounts) => {
     }
   })
 
+  // It should require a valid index when retrieving image details
   it('should require a valid index when retrieving image details', async () => {
     try {
       await imageRegisterInstance.getImage(owner, -1)
@@ -373,10 +386,13 @@ contract('ImageRegister', (accounts) => {
     }
   })
 
+  // Only the contracgt owner can perform an emergency stop
   it('should allow the owner to perform an emergency stop', async () => {
     await imageRegisterInstance.emergencyStop(true, { from: owner })
   })
 
+  // It should fail if anyone other than the contract owner attempts to
+  // perform an emergency stop
   it('should disallow a non-owner to perform an emergency stop', async () => {
     try {
       await imageRegisterInstance.emergencyStop(true, { from: bob })
@@ -389,6 +405,7 @@ contract('ImageRegister', (accounts) => {
     }
   })
 
+  // It should disallow uploading an image when the contract is paused
   it('should disallow uploading an image when there is an emergency stop', async () => {
     await imageRegisterInstance.emergencyStop(true, { from: owner })
 
@@ -411,6 +428,7 @@ contract('ImageRegister', (accounts) => {
     }
   })
 
+  // It should log an LogEmergency event when pausing / restarting a contract
   it('should emit a LogEmergencyStop event when performing an emergency stop', async () => {
     const tx = await imageRegisterInstance.emergencyStop(true, { from: owner })
 
