@@ -182,6 +182,7 @@ Check out the awesome tutorial [Deploy Your Smart Contract Directly from Truffle
 - Did you `truffle compile` and `truffle migrate` whenever starting your local network or making changes to your smart contract?
 - Transaction error? Try resetting the MetaMask account you created under settings.
 - Is `truffle migrate` showing stale settings? Try `truffle migrate --reset`
+- Images do not appear right away? Have noticed on Mac that ganache-cli will drop transactions. If you are using the Rinkeby TestNet, it may take up to a minute before the transaction is mined. 
 
 ## Where can I find more documentation?
 
@@ -190,10 +191,19 @@ This application is a marriage of [Truffle](http://truffleframework.com/) and a 
 You can also check out the official sites for the [Ethereum Project](https://ethereum.org/), [OpenZeppelin](https://openzeppelin.org/) library and [IPFS](https://ipfs.io/).
 
 ## Host the UI on IPFS
+
 There seems to be a number of issues hosting a `creat-react-app` on IPFS.  Take a look at the following links if you are interested in trying this:
  * [How to deploy/write React/Redux apps on IPFS](https://www.reddit.com/r/ipfs/comments/6ba9ck/how_to_deploywrite_reactredux_apps_on_ipfs/)
  * [ipfs-webpack-plugin
 ](https://www.npmjs.com/package/ipfs-webpack-plugin) - IPFSWebpackPlugin is a plugin for webpack that makes it easy for you to load your generated assets via IPFS. It comes with a loader you can use instead of loading assets directly, and your assets will be loaded via the IPFS network instead.
+
+## Future enhancements
+* Add a visual indicator of the number of image uploads in-progress
+* Use optimistic UI updates
+* Improve web3 error handling, use React error boundaries
+* Image upload wizard
+* Allow video uploads
+* Update image metadata e.g. title, description, tags
 
 ## Notes
 
