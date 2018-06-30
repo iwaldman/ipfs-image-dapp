@@ -54,7 +54,7 @@ For this project, we used the following stack:
 
     You may want to pass in a blocktime. Otherwise, it's difficult to track things like loading indicators because Ganache will mine instantly. 
     
-    **Note**: I've noticed that using a blocktime while running `truffle test` causes issues.
+    <strong>Note</strong>: I've noticed that using a blocktime while running `truffle test` causes issues.
 
     ```bash
     // 3 second blocktime
@@ -71,7 +71,7 @@ For this project, we used the following stack:
     npm install
     ```
 
-    - If you get an error on install, don't panic. It should still work.
+    <strong>Note</strong>: If you get an error on install, don't panic. It should still work.
 
 4.  Compile and migrate the smart contracts.
 
@@ -131,15 +131,15 @@ Using network 'development'.
 Steps to deploy our smart contract directly from Truffle with Infura to the Rinkeby TestNet.
 
 1. Get an [Infura](https://infura.io/) API key.  You can sign up for [free](https://infura.io/signup).
-2. Create a .env file in the root directory if it doens't exist
+2. Create a .env file in the root directory if it doesn't exist
     ```bash
     cd ipfs-image-dapp
     touch .env
     ```
 2. Update the .env file with your MetaMask mnenomic and Infura API Key
     ```javascript
-    MNENOMIC = // Your MetaMask's recovery words
-    INFURA_API_KEY = // Your Infura API Key after its registration
+    MNENOMIC = '<Your MetaMasks recovery words>'
+    INFURA_API_KEY = '<Your Infura API Key after its registration>'
     ```
 3. Deploy to Rinkeby with `truffle migrate --reset --compile-all --network rinkeby`
     
