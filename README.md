@@ -54,7 +54,7 @@ For this project, we used the following stack:
 
     You may want to pass in a blocktime. Otherwise, it's difficult to track things like loading indicators because Ganache will mine instantly. 
     
-    <strong>Note</strong>: I've noticed that using a blocktime while running `truffle test` causes issues.
+    <strong>Note</strong>: We've noticed that using a blocktime while running `truffle test` causes issues.
 
     ```bash
     // 3 second blocktime
