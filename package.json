@@ -62,7 +62,14 @@
     "test": "node scripts/test.js --env=jsdom",
     "lint:solidity": "./node_modules/.bin/solium -d ./contracts",
     "start:ganache": "ganache-cli -i local_test -d",
-    "deploy:truffle": "truffle migrate --network ganache --reset"
+    "deploy:truffle": "truffle migrate --network ganache --reset",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,json,css}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "jest": {
     "collectCoverageFrom": [
@@ -104,9 +111,21 @@
     ]
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "prettier"
+    ],
+    "plugins": [
+      "prettier"
+    ],
+    "rules": {
+      "prettier/prettier": "error"
+    }
   },
   "devDependencies": {
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.1",
+    "prettier": "^1.13.7",
     "solidity-coverage": "^0.5.4",
     "solium": "^1.1.7",
     "truffle": "^4.1.12",
