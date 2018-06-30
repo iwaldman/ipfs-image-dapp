@@ -43,7 +43,7 @@ class ImageItem extends Component {
             <a
               target="_blank"
               href={`https://ipfs.io/ipfs/${ipfsHash}`}
-              class="card-link"
+              className="card-link"
             >
               View on IPFS
             </a>
