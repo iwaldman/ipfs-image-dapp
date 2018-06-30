@@ -192,7 +192,7 @@ You can also check out the official sites for the [Ethereum Project](https://eth
 
 ## Host the UI on IPFS
 
-There seems to be a number of issues hosting a `creat-react-app` on IPFS.  Take a look at the following links if you are interested in trying this:
+There seem to be a number of issues hosting a `create-react-app` on IPFS.  Take a look at the following links if you are interested in exploring this:
  * [How to deploy/write React/Redux apps on IPFS](https://www.reddit.com/r/ipfs/comments/6ba9ck/how_to_deploywrite_reactredux_apps_on_ipfs/)
  * [ipfs-webpack-plugin
 ](https://www.npmjs.com/package/ipfs-webpack-plugin) - IPFSWebpackPlugin is a plugin for webpack that makes it easy for you to load your generated assets via IPFS. It comes with a loader you can use instead of loading assets directly, and your assets will be loaded via the IPFS network instead.
