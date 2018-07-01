@@ -101,7 +101,7 @@ For this project, we used the following stack:
 
 ## Testing
 
-To run the unit tests.
+### To run the unit tests.
 
 ```shell
 $ truffle test
@@ -128,7 +128,7 @@ Using network 'development'.
 
   17 passing (2s)
 ```
-To run solidity coverage.
+### To run solidity coverage.
 
 ```bash
 $ npm run coverage:solidity
