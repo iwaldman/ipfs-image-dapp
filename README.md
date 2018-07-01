@@ -128,6 +128,73 @@ Using network 'development'.
 
   17 passing (2s)
 ```
+To run solidity coverage.
+
+```bash
+$ npm run coverage:solidity
+
+> ipfs-image-app@0.1.0 coverage:solidity /Users/irvin/dev/ipfs-image-dapp
+> solidity-coverage
+
+Generating coverage environment
+Running: truffle compile
+(this can take a few seconds)...
+Compiling ./contracts/ImageRegister.sol...
+Compiling ./contracts/Migrations.sol...
+Compiling openzeppelin-solidity/contracts/lifecycle/Destructible.sol...
+Compiling openzeppelin-solidity/contracts/ownership/Ownable.sol...
+Writing artifacts to ./build/contracts
+
+Instrumenting  ./coverageEnv/contracts/ImageRegister.sol
+Skipping instrumentation of  ./coverageEnv/contracts/Migrations.sol
+Running: truffle compile
+(this can take a few seconds)...
+Compiling ./contracts/ImageRegister.sol...
+Compiling ./contracts/Migrations.sol...
+Compiling openzeppelin-solidity/contracts/lifecycle/Destructible.sol...
+Compiling openzeppelin-solidity/contracts/ownership/Ownable.sol...
+Writing artifacts to ./build/contracts
+
+Launched testrpc on port 8555
+Running: truffle test
+(this can take a few seconds)...
+Using network 'development'.
+
+  Contract: ImageRegister
+    ✓ has an owner
+    ✓ should selfdestruct
+    ✓ should store an image (134ms)
+    ✓ should emit a LogImageUploaded event when storing an image (114ms)
+    ✓ should return image details (162ms)
+    ✓ should return image count (220ms)
+    ✓ should store images for any number of owners (432ms)
+    ✓ should require a valid IPFS hash when uploading an image (70ms)
+    ✓ should require a valid title when uploading an image (72ms)
+    ✓ should require a valid description when uploading an image (131ms)
+    ✓ should require tags when uploading an image (88ms)
+    ✓ should require a valid address when retrieving image count
+    ✓ should require a valid index when retrieving image details (83ms)
+    ✓ should allow the owner to perform an emergency stop
+    ✓ should disallow a non-owner to perform an emergency stop
+    ✓ should disallow uploading an image when there is an emergency stop (58ms)
+    ✓ should emit a LogEmergencyStop event when performing an emergency stop (40ms)
+
+  17 passing (3s)
+
+--------------------|----------|----------|----------|----------|----------------|
+File                |  % Stmts | % Branch |  % Funcs |  % Lines |Uncovered Lines |
+--------------------|----------|----------|----------|----------|----------------|
+ contracts/         |      100 |    88.89 |    83.33 |      100 |                |
+  ImageRegister.sol |      100 |    88.89 |    83.33 |      100 |                |
+--------------------|----------|----------|----------|----------|----------------|
+All files           |      100 |    88.89 |    83.33 |      100 |                |
+--------------------|----------|----------|----------|----------|----------------|
+
+Istanbul coverage reports generated
+Cleaning up...
+Shutting down testrpc-sc (pid 94037)
+Done.
+```
 
 ## Deploy to Rinkeby TestNet
 
