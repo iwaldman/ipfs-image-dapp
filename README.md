@@ -2,21 +2,21 @@
 
 ## Overview
 
-IPFS and the Blockchain are a perfect match. Why? You can address large amounts of data with IPFS, and place the immutable, permanent IPFS links into a blockchain transaction. This will timestamp and secure your content, without having to put the data on the chain itself. You now have undisputable proof that your image existed at that time it was uploaded.
+IPFS and the Blockchain are a perfect match. Why? You can address large amounts of data with IPFS and place the immutable, permanent IPFS links into a blockchain transaction. This will timestamp and secure your content, without having to put the data on the chain itself. You now have undisputable proof that your image existed at that time it was uploaded.
 
-This dApp demonstrates how to implement IPFS file uploads and store the IPFS hash on the blockchain.
+This project is an Ethereum Decentralized Application (dApp) using React, Redux, React Router and Bootstrap. It demonstrates how to implement IPFS file uploads and store the IPFS hash on the blockchain.
 
 ## Usage
 
 ### Main Page
 
-In this application, the main page displays a list of images filtered by owner. Each image displays the image, title, description, tags, upload timestamp and IPFS hash.
+In this application, the main page displays a list of image cards filtered by owner i.e. MetaMask account. Each image card displays the image, title, description, tags, upload timestamp and IPFS hash.
 
 ![IPFS Image dApp](../master/app.png?raw=true 'IPFS Image dApp')
 
 ### Upload an Image
 
-Click _Upload Image_ to upload an image to IPFS and the blockchain. You will are required to enter an image title, optional description and appropriate tags. Click _Upload_ to submit.
+Click _Upload Image_ to upload an image to IPFS and the blockchain. You are required to enter an image title, optional description and appropriate tags. Click _Upload_ to submit.
 
 ![IPFS Image dApp](../master/upload-image.png?raw=true 'IPFS Image dApp')
 
@@ -129,75 +129,6 @@ Using network 'development'.
   17 passing (2s)
 ```
 
-To run test coverage.
-
-```bash
-$ npm run coverage:solidity
-
-> ipfs-image-app@0.1.0 coverage:solidity /Users/irvin/dev/ipfs-image-dapp
-> solidity-coverage
-
-Generating coverage environment
-Running: truffle compile
-(this can take a few seconds)...
-Compiling ./contracts/ImageRegister.sol...
-Compiling ./contracts/Migrations.sol...
-Compiling openzeppelin-solidity/contracts/lifecycle/Destructible.sol...
-Compiling openzeppelin-solidity/contracts/ownership/Ownable.sol...
-Writing artifacts to ./build/contracts
-
-Instrumenting  ./coverageEnv/contracts/ImageRegister.sol
-Skipping instrumentation of  ./coverageEnv/contracts/Migrations.sol
-Running: truffle compile
-(this can take a few seconds)...
-Compiling ./contracts/ImageRegister.sol...
-Compiling ./contracts/Migrations.sol...
-Compiling openzeppelin-solidity/contracts/lifecycle/Destructible.sol...
-Compiling openzeppelin-solidity/contracts/ownership/Ownable.sol...
-Writing artifacts to ./build/contracts
-
-Launched testrpc on port 8555
-Running: truffle test
-(this can take a few seconds)...
-Using network 'development'.
-
-  Contract: ImageRegister
-    ✓ has an owner
-    ✓ should selfdestruct
-    ✓ should store an image (134ms)
-    ✓ should emit a LogImageUploaded event when storing an image (114ms)
-    ✓ should return image details (162ms)
-    ✓ should return image count (220ms)
-    ✓ should store images for any number of owners (432ms)
-    ✓ should require a valid IPFS hash when uploading an image (70ms)
-    ✓ should require a valid title when uploading an image (72ms)
-    ✓ should require a valid description when uploading an image (131ms)
-    ✓ should require tags when uploading an image (88ms)
-    ✓ should require a valid address when retrieving image count
-    ✓ should require a valid index when retrieving image details (83ms)
-    ✓ should allow the owner to perform an emergency stop
-    ✓ should disallow a non-owner to perform an emergency stop
-    ✓ should disallow uploading an image when there is an emergency stop (58ms)
-    ✓ should emit a LogEmergencyStop event when performing an emergency stop (40ms)
-
-
-  17 passing (3s)
-
---------------------|----------|----------|----------|----------|----------------|
-File                |  % Stmts | % Branch |  % Funcs |  % Lines |Uncovered Lines |
---------------------|----------|----------|----------|----------|----------------|
- contracts/         |      100 |    88.89 |    83.33 |      100 |                |
-  ImageRegister.sol |      100 |    88.89 |    83.33 |      100 |                |
---------------------|----------|----------|----------|----------|----------------|
-All files           |      100 |    88.89 |    83.33 |      100 |                |
---------------------|----------|----------|----------|----------|----------------|
-
-Istanbul coverage reports generated
-Cleaning up...
-Shutting down testrpc-sc (pid 94037)
-Done.
-```
-
 ## Deploy to Rinkeby TestNet
 
 Steps to deploy our smart contract directly from Truffle with Infura to the Rinkeby TestNet.
@@ -255,6 +186,7 @@ Check out the awesome tutorial [Deploy Your Smart Contract Directly from Truffle
 - Did you `truffle compile` and `truffle migrate` whenever starting your local network or making changes to your smart contract?
 - Transaction error? Try resetting the MetaMask account you created under settings.
 - Is `truffle migrate` showing stale settings? Try `truffle migrate --reset`
+- Images do not appear right away? Have noticed on Mac that ganache-cli will drop transactions. If you are using the Rinkeby TestNet, it may take up to a minute before the transaction is mined.
 
 ## Where can I find more documentation?
 
@@ -264,11 +196,20 @@ You can also check out the official sites for the [Ethereum Project](https://eth
 
 ## Host the UI on IPFS
 
-There seems to be a number of issues hosting a `creat-react-app` on IPFS. Take a look at the following links if you are interested in trying this:
+There seem to be a number of issues hosting a `create-react-app` on IPFS. Take a look at the following links if you are interested in exploring this:
 
 - [How to deploy/write React/Redux apps on IPFS](https://www.reddit.com/r/ipfs/comments/6ba9ck/how_to_deploywrite_reactredux_apps_on_ipfs/)
 - [ipfs-webpack-plugin
   ](https://www.npmjs.com/package/ipfs-webpack-plugin) - IPFSWebpackPlugin is a plugin for webpack that makes it easy for you to load your generated assets via IPFS. It comes with a loader you can use instead of loading assets directly, and your assets will be loaded via the IPFS network instead.
+
+## Future enhancements
+
+- Add a visual indicator of the number of image uploads in-progress
+- Use optimistic UI updates
+- Improve web3 error handling, use React error boundaries
+- Image upload wizard workflow
+- Allow video uploads
+- Allow update of image metadata e.g. title, description, tags
 
 ## Notes
 
