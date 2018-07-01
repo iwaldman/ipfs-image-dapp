@@ -110,5 +110,5 @@ export const uploadImage = (
 
 const convertTimestampToString = (timestamp) => {
   let tempDate = timestamp.toNumber()
-  return tempDate !== 0 ? new Date(tempDate).toString() : null
+  return tempDate !== 0 ? new Date(tempDate * 1000).toString() : null
 }
