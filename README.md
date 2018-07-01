@@ -280,6 +280,7 @@ There seem to be a number of issues hosting a `create-react-app` on IPFS. Take a
 - Image upload wizard workflow
 - Allow video uploads
 - Allow update of image metadata e.g. title, description, tags
+- Search / filter by tags
 
 ## Notes
 
