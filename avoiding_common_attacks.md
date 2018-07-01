@@ -46,3 +46,7 @@ It is easy to accidentally expose a contract function which was meant to be inte
 We have mitigated against this risk by:
  * Following coding standards and best practices. This is verified by running the Solidity linter [solium](http://solium.readthedocs.io/en/latest/user-guide.html).
  * Auditing the compiler-generated ABI to ensure no unexpected functions appear.
+ 
+## For more information
+* [Security Considerations](http://solidity.readthedocs.io/en/develop/security-considerations.html)
+* [Security Best Practices](https://github.com/ConsenSys/smart-contract-best-practices)

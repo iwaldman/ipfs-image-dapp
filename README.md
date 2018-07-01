@@ -102,6 +102,7 @@ For this project, we used the following stack:
 ## Testing
 
 ### To run the unit tests.
+Open a terminal and run `truffle test`.
 
 ```shell
 $ truffle test
@@ -130,6 +131,7 @@ Using network 'development'.
 ```
 
 ### To run solidity coverage.
+Open a terminal and run `npm run coverage:solidity`.
 
 ```bash
 $ npm run coverage:solidity
