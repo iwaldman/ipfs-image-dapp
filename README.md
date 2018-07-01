@@ -12,13 +12,13 @@ This project is an Ethereum Decentralized Application (dApp) using React, Redux,
 
 In this application, the main page displays a list of image cards filtered by owner i.e. MetaMask account. Each image card displays the image, title, description, tags, upload timestamp and IPFS hash.
 
-![IPFS Image dApp](../master/app.png?raw=true 'IPFS Image dApp')
+![IPFS Image dApp](../master/assets/app.png?raw=true 'IPFS Image dApp')
 
 ### Upload an Image
 
 Click _Upload Image_ to upload an image to IPFS and the blockchain. You are required to enter an image title, optional description and appropriate tags. Click _Upload_ to submit.
 
-![IPFS Image dApp](../master/upload-image.png?raw=true 'IPFS Image dApp')
+![IPFS Image dApp](../master/assets/upload-image.png?raw=true 'Upload Image')
 
 ## Our stack
 
@@ -97,7 +97,7 @@ For this project, we used the following stack:
     - Create and connect to a custom RPC network using the Ganache RPC server (currently `http://127.0.0.1:8545`), then
     - Import a new account and use the account seed phrase provided by Ganache
 
-      ![IPFS Image dApp](../master/metamask-choose-network.png?raw=true 'IPFS Image dApp')
+      ![IPFS Image dApp](../master/assets/metamask-choose-network.png?raw=true 'MetaMask Choose Network')
 
 ## Testing
 
@@ -128,6 +128,7 @@ Using network 'development'.
 
   17 passing (2s)
 ```
+
 ### To run solidity coverage.
 
 ```bash
