@@ -61,8 +61,10 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "lint:solidity": "./node_modules/.bin/solium -d ./contracts",
-    "start:ganache": "ganache-cli -i local_test -d",
-    "deploy:truffle": "truffle migrate --network ganache --reset",
+    "test:solidity": "truffle test",
+    "coverage:solidity": "./node_modules/.bin/solidity-coverage",
+    "start:ganache": "ganache-cli",
+    "deploy:truffle": "truffle migrate --network ganache --reset --compile-all",
     "precommit": "lint-staged"
   },
   "lint-staged": {

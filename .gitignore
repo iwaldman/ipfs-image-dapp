@@ -17,6 +17,9 @@ lib-cov
 # Coverage directory used by tools like istanbul
 coverage
 
+# solidity-coverage
+coverage.json
+
 # nyc test coverage
 .nyc_output
 

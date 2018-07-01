@@ -16,7 +16,7 @@ In this application, the main page displays a list of images filtered by owner. 
 
 ### Upload an Image
 
-Click *Upload Image* to upload an image to IPFS and the blockchain. You will are required to enter an image title, optional description and appropriate tags. Click *Upload* to submit.
+Click _Upload Image_ to upload an image to IPFS and the blockchain. You will are required to enter an image title, optional description and appropriate tags. Click _Upload_ to submit.
 
 ![IPFS Image dApp](../master/upload-image.png?raw=true 'IPFS Image dApp')
 
@@ -33,8 +33,8 @@ For this project, we used the following stack:
 
 ## Prerequisites
 
-1.  You will need [Metamask](https://metamask.io/) plugin for Chrome. 
-2.  Make sure you have [Node.js](https://nodejs.org/en/) installed. 
+1.  You will need [Metamask](https://metamask.io/) plugin for Chrome.
+2.  Make sure you have [Node.js](https://nodejs.org/en/) installed.
 
 ## Installation
 
@@ -52,8 +52,8 @@ For this project, we used the following stack:
     ganache-cli
     ```
 
-    You may want to pass in a blocktime. Otherwise, it's difficult to track things like loading indicators because Ganache will mine instantly. 
-    
+    You may want to pass in a blocktime. Otherwise, it's difficult to track things like loading indicators because Ganache will mine instantly.
+
     <strong>Note</strong>: We've noticed that using a blocktime while running `truffle test` causes issues.
 
     ```bash
@@ -78,9 +78,9 @@ For this project, we used the following stack:
     ```bash
     truffle compile
     truffle migrate
-    
+
     # You can combine into one command
-    truffle migrate --reset ---compile-all    
+    truffle migrate --reset ---compile-all
     ```
 
 5.  Start the application
@@ -92,10 +92,11 @@ For this project, we used the following stack:
 6.  Navigate to http://localhost:3000/ in your browser.
 
 7.  Remember to connect [MetaMask](https://metamask.io/) to one of your local Ganache Ethereum accounts
+
     - Connect to Localhost 8545, or
     - Create and connect to a custom RPC network using the Ganache RPC server (currently `http://127.0.0.1:8545`), then
     - Import a new account and use the account seed phrase provided by Ganache
-    
+
       ![IPFS Image dApp](../master/metamask-choose-network.png?raw=true 'IPFS Image dApp')
 
 ## Testing
@@ -127,22 +128,93 @@ Using network 'development'.
 
   17 passing (2s)
 ```
+
+To run test coverage.
+
+```bash
+$ npm run coverage:solidity
+
+> ipfs-image-app@0.1.0 coverage:solidity /Users/irvin/dev/ipfs-image-dapp
+> solidity-coverage
+
+Generating coverage environment
+Running: truffle compile
+(this can take a few seconds)...
+Compiling ./contracts/ImageRegister.sol...
+Compiling ./contracts/Migrations.sol...
+Compiling openzeppelin-solidity/contracts/lifecycle/Destructible.sol...
+Compiling openzeppelin-solidity/contracts/ownership/Ownable.sol...
+Writing artifacts to ./build/contracts
+
+Instrumenting  ./coverageEnv/contracts/ImageRegister.sol
+Skipping instrumentation of  ./coverageEnv/contracts/Migrations.sol
+Running: truffle compile
+(this can take a few seconds)...
+Compiling ./contracts/ImageRegister.sol...
+Compiling ./contracts/Migrations.sol...
+Compiling openzeppelin-solidity/contracts/lifecycle/Destructible.sol...
+Compiling openzeppelin-solidity/contracts/ownership/Ownable.sol...
+Writing artifacts to ./build/contracts
+
+Launched testrpc on port 8555
+Running: truffle test
+(this can take a few seconds)...
+Using network 'development'.
+
+  Contract: ImageRegister
+    ✓ has an owner
+    ✓ should selfdestruct
+    ✓ should store an image (134ms)
+    ✓ should emit a LogImageUploaded event when storing an image (114ms)
+    ✓ should return image details (162ms)
+    ✓ should return image count (220ms)
+    ✓ should store images for any number of owners (432ms)
+    ✓ should require a valid IPFS hash when uploading an image (70ms)
+    ✓ should require a valid title when uploading an image (72ms)
+    ✓ should require a valid description when uploading an image (131ms)
+    ✓ should require tags when uploading an image (88ms)
+    ✓ should require a valid address when retrieving image count
+    ✓ should require a valid index when retrieving image details (83ms)
+    ✓ should allow the owner to perform an emergency stop
+    ✓ should disallow a non-owner to perform an emergency stop
+    ✓ should disallow uploading an image when there is an emergency stop (58ms)
+    ✓ should emit a LogEmergencyStop event when performing an emergency stop (40ms)
+
+
+  17 passing (3s)
+
+--------------------|----------|----------|----------|----------|----------------|
+File                |  % Stmts | % Branch |  % Funcs |  % Lines |Uncovered Lines |
+--------------------|----------|----------|----------|----------|----------------|
+ contracts/         |      100 |    88.89 |    83.33 |      100 |                |
+  ImageRegister.sol |      100 |    88.89 |    83.33 |      100 |                |
+--------------------|----------|----------|----------|----------|----------------|
+All files           |      100 |    88.89 |    83.33 |      100 |                |
+--------------------|----------|----------|----------|----------|----------------|
+
+Istanbul coverage reports generated
+Cleaning up...
+Shutting down testrpc-sc (pid 94037)
+Done.
+```
+
 ## Deploy to Rinkeby TestNet
+
 Steps to deploy our smart contract directly from Truffle with Infura to the Rinkeby TestNet.
 
-1. Get an [Infura](https://infura.io/) API key.  You can sign up for [free](https://infura.io/signup).
-2. Create a .env file in the root directory if it doesn't exist
+1.  Get an [Infura](https://infura.io/) API key. You can sign up for [free](https://infura.io/signup).
+2.  Create a .env file in the root directory if it doesn't exist
     ```bash
     cd ipfs-image-dapp
     touch .env
     ```
-2. Update the .env file with your MetaMask mnenomic and Infura API Key
+3.  Update the .env file with your MetaMask mnenomic and Infura API Key
     ```javascript
     MNENOMIC = '<Your MetaMasks recovery words>'
     INFURA_API_KEY = '<Your Infura API Key after its registration>'
     ```
-3. Deploy to Rinkeby with `truffle migrate --reset --compile-all --network rinkeby`
-    
+4.  Deploy to Rinkeby with `truffle migrate --reset --compile-all --network rinkeby`
+
     ```bash
     $ truffle migrate --reset --compile-all --network rinkeby
     Compiling ./contracts/ImageRegister.sol...
@@ -168,7 +240,8 @@ Steps to deploy our smart contract directly from Truffle with Infura to the Rink
       ... 0x34fda38267e92b0cc6449bca80415c9e3438236191c1ed9a9536e1df9c9e59a9
     Saving artifacts...
     ```
-4. Run the application as described above.
+
+5.  Run the application as described above.
 
 Check out the awesome tutorial [Deploy Your Smart Contract Directly from Truffle with Infura](https://medium.com/coinmonks/deploy-your-smart-contract-directly-from-truffle-with-infura-ba1e1f1d40c2) by Hyungsuk Kang.
 
@@ -190,10 +263,12 @@ This application is a marriage of [Truffle](http://truffleframework.com/) and a 
 You can also check out the official sites for the [Ethereum Project](https://ethereum.org/), [OpenZeppelin](https://openzeppelin.org/) library and [IPFS](https://ipfs.io/).
 
 ## Host the UI on IPFS
-There seems to be a number of issues hosting a `creat-react-app` on IPFS.  Take a look at the following links if you are interested in trying this:
- * [How to deploy/write React/Redux apps on IPFS](https://www.reddit.com/r/ipfs/comments/6ba9ck/how_to_deploywrite_reactredux_apps_on_ipfs/)
- * [ipfs-webpack-plugin
-](https://www.npmjs.com/package/ipfs-webpack-plugin) - IPFSWebpackPlugin is a plugin for webpack that makes it easy for you to load your generated assets via IPFS. It comes with a loader you can use instead of loading assets directly, and your assets will be loaded via the IPFS network instead.
+
+There seems to be a number of issues hosting a `creat-react-app` on IPFS. Take a look at the following links if you are interested in trying this:
+
+- [How to deploy/write React/Redux apps on IPFS](https://www.reddit.com/r/ipfs/comments/6ba9ck/how_to_deploywrite_reactredux_apps_on_ipfs/)
+- [ipfs-webpack-plugin
+  ](https://www.npmjs.com/package/ipfs-webpack-plugin) - IPFSWebpackPlugin is a plugin for webpack that makes it easy for you to load your generated assets via IPFS. It comes with a loader you can use instead of loading assets directly, and your assets will be loaded via the IPFS network instead.
 
 ## Notes
 
@@ -202,4 +277,5 @@ This project uses [Bootstrap 4](https://getbootstrap.com/).
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
 # License
+
 MIT
