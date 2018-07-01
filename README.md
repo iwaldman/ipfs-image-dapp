@@ -227,18 +227,18 @@ Steps to deploy our smart contract directly from Truffle with Infura to the Rink
     Using network 'rinkeby'.
 
     Running migration: 1_initial_migration.js
-      Replacing Migrations...
-      ... 0xdcbf4bb0d236e0fefbe693bcc72d5fba19bf8399f2ae55510a2fd7d5ed1e3e70
-      Migrations: 0x523bbc842b62f7887303fc3a93a697780cb6899c
+      Deploying Migrations...
+      ... 0xb2d3cebfca0c1a2e0d271c07740112460d82ce4469ba14d7b92f9993314af50c
+      Migrations: 0x4ed3265ed135a4c85669f32ca662bd2aba3e5db3
     Saving successful migration to network...
-      ... 0xea26b5ca3f7d4d8613234923bde361156576797810320ebadf106449cdc1648b
+      ... 0xde1d86d1efbeae9d086e0d1d170a20bbe1f570e92816d231265874f2a8afe556
     Saving artifacts...
     Running migration: 2_deploy_contracts.js
-      Replacing ImageRegister...
-      ... 0x10ddf748932a635fad7f4e0e2112c9008aa3fd79abcf513d1a7cc6f57edc82be
-      ImageRegister: 0x93a2b11a3656a419e24732ddcb6293251804c8c9
+      Deploying ImageRegister...
+      ... 0xcfbe99781c8c0cd77dd208eb445b2c12381704441e3827b2308a88d9c9b29079
+      ImageRegister: 0x107aaa697293b44376de69ad4b87579e3b1e50d8
     Saving successful migration to network...
-      ... 0x34fda38267e92b0cc6449bca80415c9e3438236191c1ed9a9536e1df9c9e59a9
+      ... 0x46ad7dbe55f412a55c76e48bf7553603c0826a19cda92f45f319699b8eb5a203
     Saving artifacts...
     ```
 
