@@ -48,7 +48,7 @@ export const web3Connect = () => async (dispatch, getHistory) => {
       })
     } else {
       // something is wrong
-      const error = 'Unable to get the list of accounts that control the node.'
+      const error = `Unable to get the list of accounts that control the node. Verify that MetaMask is connected to the proper network then reload the application.`
       console.log(error)
       dispatch({
         type: WEB3_ERROR,
@@ -60,12 +60,15 @@ export const web3Connect = () => async (dispatch, getHistory) => {
     }
   } catch (error) {
     // unable to load the contract
-    console.log('Error loading ImageRegister contract.', error.message)
+    const errorMessage = `Error loading ImageRegister contract. Be sure the contract is deployed to the blockchain. ERR: ${
+      error.message
+    }`
+    console.log(errorMessage)
     dispatch({
       type: WEB3_ERROR,
       payload: {
         loading: false,
-        error: error.message,
+        error: errorMessage,
       },
     })
   }
