@@ -106,7 +106,7 @@ class UploadImage extends Component {
                     required
                   />
                   <small id="tagsHelpBlock" className="form-text text-muted">
-                    Comma-deliminted e.g Baseball, Softball Soccer.
+                    Comma-delimited e.g Baseball, Softball, Soccer.
                   </small>
                   <div className="invalid-feedback">Tags are required.</div>
                 </div>
