@@ -80,7 +80,7 @@ class Navbar extends Component {
                 <circle cx="12" cy="13" r="4" />
               </svg>
               <strong>
-                IPFS Image Upoad dApp with Ethereum Smart Contracts
+                IPFS Image Upload dApp with Ethereum Smart Contracts
               </strong>
             </Link>
             <button
