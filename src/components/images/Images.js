@@ -29,7 +29,7 @@ class Images extends Component {
     } else {
       if (images.length > 0) {
         imageItems = images.map((image) => (
-          <ImageItem key={image.ipfsHash} image={image} />
+          <ImageItem key={image.index} image={image} />
         ))
       } else {
         imageItems = <h4>No images found</h4>

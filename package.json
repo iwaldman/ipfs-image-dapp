@@ -29,6 +29,7 @@
     "html-webpack-plugin": "2.29.0",
     "ipfs-api": "^22.0.2",
     "jest": "20.0.4",
+    "lodash": "^4.17.10",
     "object-assign": "4.1.1",
     "openzeppelin-solidity": "^1.10.0",
     "postcss-flexbugs-fixes": "3.2.0",
@@ -60,11 +61,11 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
-    "lint:solidity": "./node_modules/.bin/solium -d ./contracts",
-    "test:solidity": "truffle test",
-    "coverage:solidity": "./node_modules/.bin/solidity-coverage",
-    "start:ganache": "ganache-cli",
-    "deploy:truffle": "truffle migrate --network ganache --reset --compile-all",
+    "sol:lint": "./node_modules/.bin/solium -d ./contracts",
+    "sol:test": "truffle test",
+    "sol:coverage": "./node_modules/.bin/solidity-coverage",
+    "ganache:start": "ganache-cli --network development",
+    "truffle:migrate": "truffle migrate --network development --reset --compile-all",
     "precommit": "lint-staged"
   },
   "lint-staged": {
@@ -115,6 +116,7 @@
   "devDependencies": {
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.1",
+    "lint-staged": "^7.2.0",
     "prettier": "^1.13.7",
     "solidity-coverage": "^0.5.4",
     "solium": "^1.1.7",

@@ -9,6 +9,7 @@ import Navbar from './components/layout/Navbar'
 import Main from './components/layout/Main'
 import Images from './components/images/Images'
 import UploadImage from './components/image/UploadImage'
+import ImageDetail from './components/image/ImageDetail'
 import NotFound from './components/notFound/NotFound'
 
 class App extends Component {
@@ -22,6 +23,7 @@ class App extends Component {
               <Switch>
                 <Route exact path="/" component={Images} />
                 <Route exact path="/uploadimage" component={UploadImage} />
+                <Route exact path="/images/:index" component={ImageDetail} />
                 <Route exact component={NotFound} />
               </Switch>
             </Main>

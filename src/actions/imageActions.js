@@ -3,7 +3,9 @@ import { ipfs } from '../utils/ipfs'
 import {
   GET_IMAGES,
   GET_IMAGES_SUCCESS,
+  GET_IMAGE,
   UPLOAD_IMAGE,
+  UPLOAD_IMAGE_SUCCESS,
   SET_ERROR,
 } from './types'
 
@@ -33,6 +35,7 @@ export const getImages = () => async (dispatch, getState) => {
 
       // Image for UI
       const image = {
+        index,
         ipfsHash: imageResult[0],
         title: imageResult[1],
         description: imageResult[2],
@@ -82,7 +85,7 @@ export const uploadImage = (
       const contractInstance = web3State.contractInstance
       try {
         // Success, upload IPFS and metadata to the blockchain
-        const receipt = await contractInstance.uploadImage(
+        const txReceipt = await contractInstance.uploadImage(
           ipfsHash,
           title,
           description,
@@ -92,8 +95,44 @@ export const uploadImage = (
           }
         )
 
-        console.log('uploadImage receipt', receipt)
-        //history.push('/')
+        console.log('uploadImage tx receipt', txReceipt)
+
+        const {
+          blockHash,
+          blockNumber,
+          transactionHash,
+          transactionIndex,
+          cumulativeGasUsed,
+          gasUsed,
+        } = txReceipt.receipt
+
+        // Determine index based on length of images array; otherwise,
+        // would need to call contract to get length
+        const index = getState().image.images.length
+          ? getState().image.images.length
+          : 0
+
+        const newImage = {
+          index,
+          ipfsHash,
+          title,
+          description,
+          tags,
+          uploadedOn: 'Pending',
+          blockHash,
+          blockNumber,
+          transactionHash,
+          transactionIndex,
+          cumulativeGasUsed,
+          gasUsed,
+        }
+
+        console.log('image', newImage)
+
+        dispatch({
+          type: UPLOAD_IMAGE_SUCCESS,
+          payload: newImage,
+        })
       } catch (error) {
         console.log('ERR', error)
         dispatch({
@@ -107,6 +146,9 @@ export const uploadImage = (
     }
   })
 }
+
+// Get image by index
+export const getImage = (index) => ({ type: GET_IMAGE, payload: index })
 
 const convertTimestampToString = (timestamp) => {
   let tempDate = timestamp.toNumber()

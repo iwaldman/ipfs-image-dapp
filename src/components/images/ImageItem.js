@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 import './ImageItem.css'
 import { textTruncate } from '../../utils/string'
@@ -9,7 +10,14 @@ class ImageItem extends Component {
   }
 
   render() {
-    const { ipfsHash, title, description, tags, uploadedOn } = this.props.image
+    const {
+      index,
+      ipfsHash,
+      title,
+      description,
+      tags,
+      uploadedOn,
+    } = this.props.image
 
     const altDescription = description || 'No description'
 
@@ -33,20 +41,25 @@ class ImageItem extends Component {
             </div>
             <hr />
             <p className="card-text">
-              {tags.split(',').map((tag, index) => (
-                <span key={index} className="badge badge-pill badge-dark mr-2">
+              {tags.split(',').map((tag, idx) => (
+                <span key={idx} className="badge badge-pill badge-dark mr-2">
                   {tag}
                 </span>
               ))}
             </p>
             <hr />
-            <a
-              target="_blank"
-              href={`https://ipfs.io/ipfs/${ipfsHash}`}
-              className="card-link"
-            >
-              View on IPFS
-            </a>
+            <div>
+              <Link to={`/images/${index}`} className="card-link">
+                Details
+              </Link>
+              <a
+                target="_blank"
+                href={`https://ipfs.io/ipfs/${ipfsHash}`}
+                className="card-link"
+              >
+                View on IPFS
+              </a>
+            </div>
           </div>
           <div className="card-footer text-muted">
             <small>{`Uploaded on ${uploadedOn}`}</small>
