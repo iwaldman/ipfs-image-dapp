@@ -19,7 +19,7 @@ class ImageItem extends Component {
       uploadedOn,
     } = this.props.image
 
-    const altDescription = description || 'No description provided'
+    const altDescription = description || 'No description'
 
     return (
       <div className="col-md-4">
