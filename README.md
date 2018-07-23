@@ -24,7 +24,7 @@ Click _Upload Image_ to upload an image to IPFS and the blockchain. You are requ
 
 Click _Details_ to view the image and blockchain transaction details. Note that the blockchain transaction information is not persisted in the current version of the application.  This information is lost when you refresh the browser or login as another user.
 
-![IPFS Image dApp](../master/assets/image-details.png?raw=true 'View Details')
+![IPFS Image dApp](../master/assets/view-details.png?raw=true 'View Details')
 
 ## Our stack
 
