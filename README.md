@@ -102,10 +102,10 @@ For this project, we used the following stack:
 ## Testing
 
 ### To run the unit tests.
-Open a terminal and run `truffle test`.
+Open a terminal and run `truffle test` or `npm run sol:test`.
 
 ```shell
-$ truffle test    # Or you can run `npm run sol:test`
+$ truffle test  
 Using network 'development'.
 
   Contract: ImageRegister
