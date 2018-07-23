@@ -211,8 +211,8 @@ Steps to deploy our smart contract directly from Truffle with Infura to the Rink
     ```
 3.  Update the .env file with your MetaMask mnenomic and Infura API Key
     ```javascript
-    MNENOMIC = '<Your MetaMasks recovery words>'
-    INFURA_API_KEY = '<Your Infura API Key after its registration>'
+    MNENOMIC='<Your MetaMask recovery words>'
+    INFURA_API_KEY='<Your Infura API Key after its registration>'
     ```
 4.  Deploy to Rinkeby with `truffle migrate --reset --compile-all --network rinkeby`
 
