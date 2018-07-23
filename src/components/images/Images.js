@@ -48,7 +48,7 @@ class Images extends Component {
             <p>
               <small>
                 Metamask Account{' '}
-                <mark>{this.props.web3.account || 'Not connected'}</mark>
+                <mark>{this.props.web3.account || 'Not Connected'}</mark>
               </small>
             </p>
             <p>
