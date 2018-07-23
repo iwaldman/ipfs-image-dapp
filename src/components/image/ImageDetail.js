@@ -12,6 +12,8 @@ class ImageDetail extends Component {
   render() {
     const image = this.props.image ? this.props.image : {}
 
+    console.log('image detail', image)
+
     const {
       ipfsHash,
       title,
@@ -98,7 +100,9 @@ class ImageDetail extends Component {
                 </tr>
                 <tr>
                   <th scope="row">Transaction Index</th>
-                  <td>{transactionIndex ? transactionIndex : 'N/A'}</td>
+                  <td>
+                    {!Number.isNaN(transactionIndex) ? transactionIndex : 'N/A'}
+                  </td>
                 </tr>
                 <tr>
                   <th scope="row">Block Hash</th>
