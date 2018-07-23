@@ -20,8 +20,8 @@ class Navbar extends Component {
                   proof that your image existed at that time it was uploaded.
                   Awesome, right?
                 </p>
-                <div class="copyright text-white mt-3">
-                  <p class="mbr-text mbr-fonts-style display-7">
+                <div className="copyright text-white mt-3">
+                  <p className="mbr-text mbr-fonts-style display-7">
                     © Copyright 2018 Bulldogs R Us - All Rights Reserved
                   </p>
                 </div>

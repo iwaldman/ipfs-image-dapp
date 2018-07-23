@@ -6,7 +6,6 @@ import { getImage } from '../../actions/imageActions'
 
 class ImageDetail extends Component {
   componentDidMount() {
-    console.log('componentDidMount', this.props.match.params)
     this.props.getImage(this.props.match.params.index)
   }
 
@@ -46,7 +45,11 @@ class ImageDetail extends Component {
                   alt={`${ipfsHash}`}
                 />
               ) : (
-                <div>Image N/A</div>
+                <img
+                  src="https://api.fnkr.net/testimg/333x180/?text=IPFS"
+                  className="card-img-top"
+                  alt="NA"
+                />
               )}
               <div className="card-body">
                 <h5 className="card-title">{title}</h5>
@@ -71,7 +74,7 @@ class ImageDetail extends Component {
           </div>
           <div className="col-md-8">
             <h3>IPFS Hash</h3>
-            <lead>
+            <p>
               {ipfsHash ? (
                 <a
                   target="_blank"
@@ -84,7 +87,7 @@ class ImageDetail extends Component {
               ) : (
                 'N/A'
               )}
-            </lead>
+            </p>
             <hr className="my-4" />
             <h3>Blockchain Details</h3>
             <table className="table table-striped">

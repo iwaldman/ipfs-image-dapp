@@ -62,7 +62,11 @@ class ImageItem extends Component {
             </div>
           </div>
           <div className="card-footer text-muted">
-            <small>{`Uploaded on ${uploadedOn}`}</small>
+            <small>
+              {uploadedOn === 'Pending'
+                ? 'PENDING'
+                : `Uploaded on ${uploadedOn}`}
+            </small>
           </div>
         </div>
       </div>
