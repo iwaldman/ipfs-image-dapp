@@ -41,7 +41,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        image: state.images[action.payload],
+        image: state.images ? state.images[action.payload] : null,
         error: null,
       }
     case UPLOAD_IMAGE:
