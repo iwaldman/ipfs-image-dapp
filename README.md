@@ -105,7 +105,7 @@ For this project, we used the following stack:
 Open a terminal and run `truffle test`.
 
 ```shell
-$ truffle test
+$ truffle test    # Or you can run `npm run sol:test`
 Using network 'development'.
 
   Contract: ImageRegister
@@ -134,7 +134,7 @@ Using network 'development'.
 Open a terminal and run `npm run coverage:solidity`.
 
 ```bash
-$ npm run coverage:solidity
+$ npm run sol:coverage
 
 > ipfs-image-app@0.1.0 coverage:solidity /Users/irvin/dev/ipfs-image-dapp
 > solidity-coverage
