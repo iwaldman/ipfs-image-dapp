@@ -44,6 +44,8 @@ For this project, we used the following stack:
     npm install -g truffle
     npm install -g ganache-cli
     ```
+    
+    <strong>Note</strong>: The graphical version of Ganache seems to be more stable on Mac whereas Ganache CLI works fine on Ubuntu.
 
 2.  Run the development blockchain.
 
