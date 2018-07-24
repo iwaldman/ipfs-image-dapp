@@ -24,7 +24,7 @@ Click _Upload Image_ to upload an image to IPFS and the blockchain. You are requ
 
 Click _Details_ to view the image and blockchain transaction details. 
 
-<strong>Note</strong>: The current version of the application does not persist the blockchain transaction information in a permanent store such as MongoDB or PostgreSQL.  Instead, we chose to store it in browser local storage keyed by the account address.  This provides a better user experience.  Otherwise, this information would be lost when you refresh the browser or login as another user.
+<strong>Note</strong>: The current version of the application does not persist the blockchain transaction information in a permanent store such as MongoDB or PostgreSQL.  Instead, we chose to store it in browser local storage keyed by the account address so to provide a better user experience.  Otherwise, this information is lost when you refresh the browser or login as another user. Keep in mind that this information is transient when running Ganache.  Be sure to clear local storage before restarting the app by following these [instructions](https://developers.google.com/web/tools/chrome-devtools/manage-data/local-storage#local-storage).
 
 ![IPFS Image dApp](../master/assets/view-details.png?raw=true 'View Details')
 
