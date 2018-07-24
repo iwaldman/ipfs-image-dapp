@@ -30,9 +30,9 @@ class ImageDetail extends Component {
     return (
       <div className="container">
         <div className="alert alert-info mt-3" role="alert">
-          Blockchain transaction information is <strong>not</strong> persisted
-          and only available post-upload. This information is lost when you
-          refresh the browser or login as another user.
+          Blockchain transaction information is <strong>not</strong> persisted.
+          This information <i>may</i> be lost when you refresh the browser or
+          login as another user.
         </div>
         <div className="mt-3 mb-3">
           <Link to="/">Go Back</Link>

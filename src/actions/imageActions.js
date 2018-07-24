@@ -1,3 +1,5 @@
+import { keyBy } from 'lodash'
+
 import { ipfs } from '../utils/ipfs'
 
 import {
@@ -14,6 +16,12 @@ export const getImages = () => async (dispatch, getState) => {
   dispatch({ type: GET_IMAGES })
 
   const web3State = getState().web3
+
+  // Retrieve image state from local storage
+  const localData = localStorage.getItem(web3State.account)
+  const localImages = localData ? JSON.parse(localData) : []
+  const imagesByIndex = keyBy(localImages, 'index')
+
   const images = []
   try {
     const count = await web3State.contractInstance.getImageCount.call(
@@ -35,6 +43,7 @@ export const getImages = () => async (dispatch, getState) => {
 
       // Image for UI
       const image = {
+        ...imagesByIndex[index],
         index,
         ipfsHash: imageResult[0],
         title: imageResult[1],
@@ -45,8 +54,8 @@ export const getImages = () => async (dispatch, getState) => {
       images.push(image)
     }
 
-    console.log('imageCount', imageCount)
-    console.log('images', images)
+    // Save image state to local storage
+    localStorage.setItem(web3State.account, JSON.stringify(images))
 
     dispatch({ type: GET_IMAGES_SUCCESS, payload: images })
   } catch (error) {
@@ -127,7 +136,11 @@ export const uploadImage = (
           gasUsed,
         }
 
-        console.log('image', newImage)
+        // Update persisted state in local storage
+        const localData = localStorage.getItem(web3State.account)
+        const localImages = localData ? JSON.parse(localData) : []
+        localImages.push(newImage)
+        localStorage.setItem(web3State.account, JSON.stringify(localImages))
 
         dispatch({
           type: UPLOAD_IMAGE_SUCCESS,

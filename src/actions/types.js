@@ -1,5 +1,6 @@
 export const WEB3_CONNECTED = 'WEB3_CONNECTED'
 export const WEB3_ERROR = 'WEB3_ERROR'
+export const WEB3_ACCOUNT_CHANGE = 'WEB3_ACCOUNT_CHANGE'
 export const GET_IMAGES = 'GET_IMAGES'
 export const GET_IMAGES_SUCCESS = 'GET_IMAGES_SUCCESS'
 export const GET_IMAGE = 'GET_IMAGE'

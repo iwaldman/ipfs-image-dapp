@@ -1,4 +1,8 @@
-import { WEB3_CONNECTED, WEB3_ERROR } from '../actions/types'
+import {
+  WEB3_CONNECTED,
+  WEB3_ERROR,
+  WEB3_ACCOUNT_CHANGE,
+} from '../actions/types'
 
 const initialState = {
   web3: null,
@@ -18,6 +22,11 @@ export default (state = initialState, action) => {
         account: action.payload.account,
         loading: false,
         error: null,
+      }
+    case WEB3_ACCOUNT_CHANGE:
+      return {
+        ...state,
+        account: action.payload,
       }
     case WEB3_ERROR:
       return {

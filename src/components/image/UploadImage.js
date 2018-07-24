@@ -77,7 +77,7 @@ class UploadImage extends Component {
                     type="text"
                     className="form-control"
                     id="title"
-                    placeholder="title"
+                    placeholder="Title"
                     value={this.state.title}
                     onChange={this.handleChange}
                     required
@@ -89,6 +89,7 @@ class UploadImage extends Component {
                   <textarea
                     className="form-control"
                     id="description"
+                    placeholder="Description"
                     rows="3"
                     value={this.state.description}
                     onChange={this.handleChange}
@@ -100,7 +101,7 @@ class UploadImage extends Component {
                     type="text"
                     className="form-control"
                     id="tags"
-                    placeholder="tags"
+                    placeholder="Tags"
                     value={this.state.tags}
                     onChange={this.handleChange}
                     required
