@@ -6,6 +6,9 @@ import { Link } from 'react-router-dom'
 import Spinner from '../common/Spinner'
 import ImageItem from './ImageItem'
 import { getImages } from '../../actions/imageActions'
+
+const backgroundImage = require('../../../assets/decentralized-network.jpeg')
+
 class Images extends Component {
   static propTypes = {
     getImages: PropTypes.func.isRequired,
@@ -38,7 +41,14 @@ class Images extends Component {
 
     return (
       <div>
-        <section className="jumbotron text-center">
+        <section
+          className="jumbotron text-center"
+          style={{
+            backgroundImage: `url(${backgroundImage})`,
+            backgroundSize: 'cover',
+            opacity: '1.0',
+          }}
+        >
           <div className="container">
             <h1 className="jumbotron-heading">Images</h1>
             <p className="lead text-muted">
