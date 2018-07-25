@@ -7,7 +7,7 @@ import Spinner from '../common/Spinner'
 import ImageItem from './ImageItem'
 import { getImages } from '../../actions/imageActions'
 
-const backgroundImage = require('../../../assets/decentralized-network.jpeg')
+const backgroundImage = require('../../../assets/images/decentralized-network.jpg')
 
 class Images extends Component {
   static propTypes = {
