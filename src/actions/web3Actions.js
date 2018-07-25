@@ -38,20 +38,22 @@ export const web3Connect = () => async (dispatch, getState) => {
       'update',
       async ({ selectedAddress }) => {
         console.log('publicConfigStore:update event', selectedAddress)
-        const lcSelectedAddress = selectedAddress.toLowerCase()
-        if (lcSelectedAddress !== getState().web3.account) {
-          await dispatch({
-            type: WEB3_ACCOUNT_CHANGE,
-            payload: lcSelectedAddress,
-          })
-          dispatch(getImages())
+        if (selectedAddress) {
+          const lcSelectedAddress = selectedAddress.toLowerCase()
+          if (lcSelectedAddress !== getState().web3.account) {
+            await dispatch({
+              type: WEB3_ACCOUNT_CHANGE,
+              payload: lcSelectedAddress,
+            })
+            dispatch(getImages())
+          }
         }
       }
     )
 
     // get the first account and ensure we are connected
     const accounts = await web3.eth.getAccounts()
-    const account = accounts[0].toLowerCase()
+    const account = accounts[0]
     console.log('auth info', web3, contractInstance, account)
     if (account) {
       // we are connected
@@ -60,7 +62,7 @@ export const web3Connect = () => async (dispatch, getState) => {
         payload: {
           web3,
           contractInstance,
-          account,
+          account: account.toLowerCase(),
           loading: false,
         },
       })
