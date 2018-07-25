@@ -70,6 +70,22 @@ class Images extends Component {
         </section>
         <div className="album py-5 bg-light">
           <div className="container">
+            <div class="row mb-3">
+              <div class="col-12 mx-auto">
+                <div class="input-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search for..."
+                  />
+                  <span class="input-group-btn">
+                    <button class="btn btn-secondary" type="button">
+                      <i class="fa fa-search" />
+                    </button>
+                  </span>
+                </div>
+              </div>
+            </div>
             <div className="row">{imageItems}</div>
           </div>
         </div>
