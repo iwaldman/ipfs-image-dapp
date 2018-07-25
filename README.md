@@ -285,7 +285,6 @@ There seem to be a number of issues hosting a `create-react-app` on IPFS. Take a
 ## Future enhancements
 
 - Add a visual indicator of the number of image uploads in-progress
-- Use optimistic UI updates
 - Improve web3 error handling, use React error boundaries
 - Image upload wizard workflow
 - Allow video uploads
