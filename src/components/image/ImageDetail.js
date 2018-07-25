@@ -13,8 +13,6 @@ class ImageDetail extends Component {
   render() {
     const image = this.props.image ? this.props.image : {}
 
-    console.log('image detail', image)
-
     const {
       ipfsHash,
       title,
@@ -93,49 +91,9 @@ class ImageDetail extends Component {
             </p>
             <hr className="my-4" />
             <h3>Blockchain Details</h3>
-            <dl className="row">
-              <dt className="col-sm-4">Transaction Hash</dt>
-              <dd className="col-sm-8">
-                {transactionHash ? transactionHash : 'N/A'}
-              </dd>
-              <dt className="col-sm-4">Transaction Index</dt>
-              <dd className="col-sm-8">
-                {!Number.isNaN(transactionIndex) ? transactionIndex : 'N/A'}
-              </dd>
-              <dt className="col-sm-4">Block Hash</dt>
-              <dd className="col-sm-8">{blockHash ? blockHash : 'N/A'}</dd>
-              <dt className="col-sm-4">Block Number</dt>
-              <dd className="col-sm-8">{blockNumber ? blockNumber : 'N/A'}</dd>
-              <dt className="col-sm-4">Gas Used (wei)</dt>
-              <dd className="col-sm-8">{gasUsed ? gasUsed : 'N/A'}</dd>
-              <dt className="col-sm-4">Cumulative Gas Used (wei)</dt>
-              <dd className="col-sm-8">
-                {cumulativeGasUsed ? cumulativeGasUsed : 'N/A'}
-              </dd>
-            </dl>
-          </div>
-          <hr className="my-4" />
-        </div>
-      </div>
-    )
-  }
-}
 
-const mapStateToProps = (state) => ({
-  image: state.image.image,
-})
-
-export default connect(
-  mapStateToProps,
-  { getImage }
-)(ImageDetail)
-
-/*
-
-
-
-<div className="table-responsive">
-              <table className="table table-striped">
+            <div className="table-responsive">
+              <table className="table">
                 <tbody>
                   <tr>
                     <th scope="row">Transaction Hash</th>
@@ -144,7 +102,7 @@ export default connect(
                   <tr>
                     <th scope="row">Transaction Index</th>
                     <td>
-                      {!Number.isNaN(transactionIndex)
+                      {transactionIndex || transactionIndex >= 0
                         ? transactionIndex
                         : 'N/A'}
                     </td>
@@ -168,5 +126,47 @@ export default connect(
                 </tbody>
               </table>
             </div>
+          </div>
+          <hr className="my-4" />
+        </div>
+      </div>
+    )
+  }
+}
+
+const mapStateToProps = (state) => ({
+  image: state.image.image,
+})
+
+export default connect(
+  mapStateToProps,
+  { getImage }
+)(ImageDetail)
+
+/*
+
+
+<dl className="row">
+              <dt className="col-sm-4">Transaction Hash</dt>
+              <dd className="col-sm-8">
+                {transactionHash ? transactionHash : 'N/A'}
+              </dd>
+              <dt className="col-sm-4">Transaction Index</dt>
+              <dd className="col-sm-8">
+                {!Number.isNaN(transactionIndex) ? transactionIndex : 'N/A'}
+              </dd>
+              <dt className="col-sm-4">Block Hash</dt>
+              <dd className="col-sm-8">{blockHash ? blockHash : 'N/A'}</dd>
+              <dt className="col-sm-4">Block Number</dt>
+              <dd className="col-sm-8">{blockNumber ? blockNumber : 'N/A'}</dd>
+              <dt className="col-sm-4">Gas Used (wei)</dt>
+              <dd className="col-sm-8">{gasUsed ? gasUsed : 'N/A'}</dd>
+              <dt className="col-sm-4">Cumulative Gas Used (wei)</dt>
+              <dd className="col-sm-8">
+                {cumulativeGasUsed ? cumulativeGasUsed : 'N/A'}
+              </dd>
+            </dl>
+
+
 
             */

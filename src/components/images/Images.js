@@ -70,17 +70,17 @@ class Images extends Component {
         </section>
         <div className="album py-5 bg-light">
           <div className="container">
-            <div class="row mb-3">
-              <div class="col-12 mx-auto">
-                <div class="input-group">
+            <div className="row mb-3">
+              <div className="col-12 mx-auto">
+                <div className="input-group">
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     placeholder="Search for..."
                   />
-                  <span class="input-group-btn">
-                    <button class="btn btn-secondary" type="button">
-                      <i class="fa fa-search" />
+                  <span className="input-group-btn">
+                    <button className="btn btn-secondary" type="button">
+                      <i className="fa fa-search" />
                     </button>
                   </span>
                 </div>
