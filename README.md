@@ -288,6 +288,8 @@ There seem to be a number of issues hosting a `create-react-app` on IPFS. Take a
 
 - Add a visual indicator of the number of image uploads in-progress
 - Improve web3 error handling, use React error boundaries
+- Improve account change logic
+  - Current logic is based on this article [Detecting Metamask account or network change in Javascript using Web3 1.0.0](https://medium.com/coinmonks/detecting-metamask-account-or-network-change-in-javascript-using-web3-1-0-0-18433e99df5a)
 - Image upload wizard workflow
 - Allow video uploads
 - Allow update of image metadata e.g. title, description, tags
