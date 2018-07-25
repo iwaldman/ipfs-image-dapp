@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
+import './ImageDetail.css'
 import { getImage } from '../../actions/imageActions'
 
 class ImageDetail extends Component {
@@ -92,36 +93,40 @@ class ImageDetail extends Component {
             </p>
             <hr className="my-4" />
             <h3>Blockchain Details</h3>
-            <table className="table table-striped">
-              <tbody>
-                <tr>
-                  <th scope="row">Transaction Hash</th>
-                  <td>{transactionHash ? transactionHash : 'N/A'}</td>
-                </tr>
-                <tr>
-                  <th scope="row">Transaction Index</th>
-                  <td>
-                    {!Number.isNaN(transactionIndex) ? transactionIndex : 'N/A'}
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">Block Hash</th>
-                  <td>{blockHash ? blockHash : 'N/A'} </td>
-                </tr>
-                <tr>
-                  <th scope="row">Block Number</th>
-                  <td>{blockNumber ? blockNumber : 'N/A'}</td>
-                </tr>
-                <tr>
-                  <th scope="row">Gas Used</th>
-                  <td>{gasUsed ? gasUsed : 'N/A'}</td>
-                </tr>
-                <tr>
-                  <th scope="row">Culmulative Gas Used</th>
-                  <td>{cumulativeGasUsed ? cumulativeGasUsed : 'N/A'}</td>
-                </tr>
-              </tbody>
-            </table>
+            <div className="table-responsive">
+              <table className="table table-striped">
+                <tbody>
+                  <tr>
+                    <th scope="row">Transaction Hash</th>
+                    <td>{transactionHash ? transactionHash : 'N/A'}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Transaction Index</th>
+                    <td>
+                      {!Number.isNaN(transactionIndex)
+                        ? transactionIndex
+                        : 'N/A'}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Block Hash</th>
+                    <td>{blockHash ? blockHash : 'N/A'} </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Block Number</th>
+                    <td>{blockNumber ? blockNumber : 'N/A'}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Gas Used (wei)</th>
+                    <td>{gasUsed ? gasUsed : 'N/A'}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Cumulative Gas Used (wei)</th>
+                    <td>{cumulativeGasUsed ? cumulativeGasUsed : 'N/A'}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
           <hr className="my-4" />
         </div>
