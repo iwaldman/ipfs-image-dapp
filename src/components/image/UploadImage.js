@@ -12,6 +12,7 @@ class UploadImage extends Component {
     description: '',
     tags: '',
     buffer: null,
+    file: null,
   }
 
   handleChange = (event) => {
@@ -25,7 +26,10 @@ class UploadImage extends Component {
     const reader = new window.FileReader()
     reader.readAsArrayBuffer(file)
     reader.onloadend = () => {
-      this.setState({ buffer: Buffer(reader.result) })
+      this.setState({
+        buffer: Buffer(reader.result),
+        file: URL.createObjectURL(file),
+      })
     }
   }
 
@@ -136,6 +140,15 @@ class UploadImage extends Component {
                   </button>
                 </div>
               </form>
+              {this.state.file && (
+                <div className="text-center mt-3 mb-3">
+                  <img
+                    src={this.state.file}
+                    className="img-thumbnail"
+                    alt="Preview"
+                  />
+                </div>
+              )}
             </div>
           </div>
         </fieldset>
