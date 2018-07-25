@@ -80,7 +80,7 @@ export const web3Connect = () => async (dispatch, getState) => {
     }
   } catch (error) {
     // unable to load the contract
-    const errorMessage = `Error loading ImageRegister contract. Be sure the contract is deployed to the blockchain. ERR: ${
+    const errorMessage = `Error loading 'ImageRegister' contract. Be sure MetaMask is connected to a network and the contract is deployed. ERR: ${
       error.message
     }`
     console.log(errorMessage)
