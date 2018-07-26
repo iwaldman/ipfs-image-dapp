@@ -20,6 +20,8 @@ Click _Upload Image_ to upload an image to IPFS and the blockchain. You are requ
 
 ![IPFS Image dApp](../master/assets/screenshots/upload-image.png?raw=true 'Upload Image')
 
+<strong>Note</strong>: You can find sample images in the `assets/sample-images` folder.
+
 ### View Details
 
 Click _Details_ to view the image and blockchain transaction details.
