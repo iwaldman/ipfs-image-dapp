@@ -268,8 +268,10 @@ Check out the awesome tutorial [Deploy Your Smart Contract Directly from Truffle
 - Are you using your custom RPC network in MetaMask?
 - If MetaMask can't find your RPC network, try switching to the Rinkeby Test Network and back.
 - Did you `truffle compile` and `truffle migrate` whenever starting your local network or making changes to your smart contract?
-- Transaction error? Try resetting the MetaMask account you created under settings.
-- Is `truffle migrate` showing stale settings? Try `truffle migrate --reset`
+- Transaction error? 
+  - Try resetting the MetaMask account you created under settings.
+- Is `truffle migrate` showing stale settings? 
+  - Try `truffle migrate --reset`
 - Images do not appear right away? 
   - Have noticed on Mac that ganache-cli will drop transactions. 
   - If you are using the Rinkeby TestNet, it may take up to a minute before the transaction is mined.
