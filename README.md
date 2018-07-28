@@ -273,7 +273,7 @@ Check out the awesome tutorial [Deploy Your Smart Contract Directly from Truffle
 - Is `truffle migrate` showing stale settings? 
   - Try `truffle migrate --reset`
 - Images do not appear right away? 
-  - Have noticed on Mac that ganache-cli will drop transactions. 
+  - Have noticed on Mac that ganache-cli may drop transactions. Try using the Ganache app instead.
   - If you are using the Rinkeby TestNet, it may take up to a minute before the transaction is mined.
 
 ## Where can I find more documentation?
