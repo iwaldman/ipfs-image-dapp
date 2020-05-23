@@ -1,12 +1,25 @@
 import contract from 'truffle-contract'
 
 import web3 from '../utils/web3'
+import Web3 from 'web3'
 import ImageRegisterContractArtifact from '../../build/contracts/ImageRegister.json'
 import { WEB3_CONNECTED, WEB3_ERROR, WEB3_ACCOUNT_CHANGE } from './types'
 import { getImages } from './imageActions'
 
 export const web3Connect = () => async (dispatch, getState) => {
   try {
+    // MetaMask breaking change requires apps to request permission before accessing accounts
+    if (window.ethereum) {
+      window.web3 = new Web3(window.ethereum)
+      await window.ethereum.enable()
+    } else if (window.web3) {
+      window.web3 = new Web3(window.web3.currentProvider)
+    } else {
+      window.alert(
+        'Non-Ethereum browser detected. You should consider trying MetaMask!'
+      )
+    }
+
     // contract ABI and set provider
     const imageRegisterContract = contract(ImageRegisterContractArtifact)
     imageRegisterContract.setProvider(web3.currentProvider)
