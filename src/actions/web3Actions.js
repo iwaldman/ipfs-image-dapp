@@ -1,6 +1,7 @@
 import contract from 'truffle-contract'
 
 import web3 from '../utils/web3'
+import Web3 from 'web3'
 import ImageRegisterContractArtifact from '../../build/contracts/ImageRegister.json'
 import { WEB3_CONNECTED, WEB3_ERROR, WEB3_ACCOUNT_CHANGE } from './types'
 import { getImages } from './imageActions'
